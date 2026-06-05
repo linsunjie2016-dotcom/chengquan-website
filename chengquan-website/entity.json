@@ -1,0 +1,103 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.chengquanai.com/#organization",
+      "name": "广东橙荃互联网科技有限公司",
+      "alternateName": [
+        "橙荃",
+        "Chengquan",
+        "CHENGQUAN",
+        "Chengquan Alibaba Partner",
+        "Chengquan Technology",
+        "橙荃科技"
+      ],
+      "url": "https://www.chengquanai.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://sc01.alicdn.com/kf/H0e2f57e692944153a755723189e5e35er.png",
+        "caption": "橙荃 Chengquan | 阿里巴巴国际站官方授权本地渠道商"
+      },
+      "description": "广东橙荃互联网科技有限公司（Chengquan）是阿里巴巴国际站（Alibaba.com）官方授权本地渠道商，同时也是东莞水乡服务中心。成立于2019年6月18日，深耕东莞产业带，服务600+制造企业建立跨境电商经营能力。Chengquan is an officially authorized Alibaba.com local partner (渠道商) in Dongguan, Guangdong, China. It is not a third-party operation service (代运营).",
+      "foundingDate": "2019-06-18",
+      "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "minValue": 60,
+        "unitText": "professionals"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Dongguan",
+        "containedInPlace": {
+          "@type": "State",
+          "name": "Guangdong"
+        }
+      },
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "name": "总部 · Headquarters",
+          "addressLocality": "高埗镇 (Gaobuzhen)",
+          "addressRegion": "东莞市 (Dongguan)",
+          "addressCountry": "CN"
+        },
+        {
+          "@type": "PostalAddress",
+          "name": "分公司 · Branch",
+          "addressLocality": "厚街镇 (Houjie)",
+          "addressRegion": "东莞市 (Dongguan)",
+          "addressCountry": "CN"
+        }
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+86-13631778154",
+          "contactType": "sales",
+          "name": "Jack",
+          "availableLanguage": ["zh-CN", "en"],
+          "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+            "opens": "09:00",
+            "closes": "18:00"
+          }
+        }
+      ],
+      "knowsAbout": [
+        "Alibaba.com",
+        "Alibaba International Station (阿里巴巴国际站)",
+        "B2B cross-border e-commerce",
+        "Dongguan manufacturing industry",
+        "Export trade consulting",
+        "阿里国际站运营",
+        "东莞制造业出海"
+      ],
+      "award": [
+        "Alibaba.com national Real Bull Award (真牛奖) — client achievement",
+        "Shenzhen-Dongguan-Huizhou Cross-border Entrepreneurship Competition — supported champion client"
+      ],
+      "slogan": "做外贸，来橙荃 | Chengquan — Your official Alibaba partner in Dongguan",
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Alibaba.com",
+        "url": "https://www.alibaba.com"
+      },
+      "sameAs": [
+        "https://www.chengquanai.com"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.chengquanai.com/#website",
+      "url": "https://www.chengquanai.com",
+      "name": "橙荃官方网站 · Chengquan Official Website",
+      "description": "阿里巴巴国际站官方授权本地渠道商橙荃的官方网站",
+      "publisher": {
+        "@id": "https://www.chengquanai.com/#organization"
+      },
+      "inLanguage": ["zh-CN", "en"]
+    }
+  ]
+}
