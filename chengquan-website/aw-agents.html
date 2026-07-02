@@ -22,7 +22,6 @@
     }
 
     .tool-hero-inner {
-      max-width: 1200px;
       margin: 0 auto;
       max-width: 980px;
     }
@@ -47,6 +46,10 @@
       margin-bottom: 18px;
     }
 
+    .tool-hero h1 span {
+      display: block;
+    }
+
     .tool-hero h1 em {
       color: var(--orange);
       font-style: normal;
@@ -64,7 +67,7 @@
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
-      margin-bottom: 26px;
+      margin-bottom: 18px;
     }
 
     .tool-actions .btn-outline {
@@ -116,6 +119,39 @@
     .platform-mark.amazon { background: #111827; }
     .platform-mark.shopify { background: #95bf47; }
     .platform-mark.okki { background: #2374ff; }
+
+    .agent-hub-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 26px;
+      padding: 12px 16px;
+      background: var(--white);
+      border: 1px solid rgba(0,191,165,0.26);
+      border-radius: 8px;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+      font-weight: 800;
+      color: var(--black);
+    }
+
+    .agent-hub-link:hover {
+      border-color: #31c7b2;
+      box-shadow: 0 8px 22px rgba(0,191,165,0.12);
+    }
+
+    .agent-hub-work {
+      font-size: 18px;
+    }
+
+    .agent-hub-divider {
+      color: var(--gray-600);
+      font-weight: 500;
+    }
+
+    .agent-hub-name {
+      color: #31c7b2;
+      font-size: 20px;
+    }
 
     .hero-proof {
       display: inline-flex;
@@ -591,6 +627,12 @@
         width: 100%;
         text-align: center;
       }
+
+      .agent-hub-link {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
     }
   </style>
 </head>
@@ -624,15 +666,21 @@
     <div class="tool-hero-inner">
       <div>
         <span class="tool-eyebrow">Accio Work · AI Agent 平台</span>
-        <h1>全球首个为真实业务打造的 <em>AI Agent 平台</em></h1>
+        <h1><span>全球首个为真实业务打造的</span><em>AI Agent 平台</em></h1>
         <div class="hero-proof">Accio Work 实战应用于多平台经营场景</div>
         <p>
-          Accio Work 是面向真实业务打造的 AI Agent 平台。橙荃将其用于商家运营、产品表达、店铺建设、客户跟进和经营分析等场景，帮助团队把经验沉淀成可复制的工作流。
+          Accio Work 是阿里国际站面向真实业务打造的 AI Agent 平台。<br />
+          橙荃运营顾问团队在此基础上，做了一系列智能体和技能研发，将其用于商家运营、产品表达、店铺建设、客户跟进和经营分析等场景，帮助团队把经验沉淀成可复制的工作流。
         </p>
         <div class="tool-actions">
           <a href="https://www.accio-ai.com/work" target="_blank" rel="noopener" class="btn-primary">下载 Accio Work</a>
           <a href="#tool-entries" class="btn-outline">查看应用入口</a>
         </div>
+        <a href="https://agenthub.accio-ai.com/" target="_blank" rel="noopener" class="agent-hub-link" aria-label="打开 Accio Work Agent Hub">
+          <span class="agent-hub-work">Accio Work</span>
+          <span class="agent-hub-divider">|</span>
+          <span class="agent-hub-name">Agent Hub</span>
+        </a>
         <div class="platform-strip" aria-label="实战应用平台">
           <span class="platform-chip"><span class="platform-mark alibaba">A</span>Alibaba.com</span>
           <span class="platform-chip"><span class="platform-mark cn1688">1688</span>1688诚信通</span>
