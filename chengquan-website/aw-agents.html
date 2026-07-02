@@ -24,10 +24,7 @@
     .tool-hero-inner {
       max-width: 1200px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
-      gap: 48px;
-      align-items: center;
+      max-width: 980px;
     }
 
     .tool-eyebrow {
@@ -45,7 +42,7 @@
 
     .tool-hero h1 {
       color: var(--black);
-      font-size: clamp(30px, 4.6vw, 52px);
+      font-size: clamp(34px, 5vw, 58px);
       line-height: 1.2;
       margin-bottom: 18px;
     }
@@ -60,6 +57,7 @@
       font-size: 17px;
       line-height: 1.85;
       margin-bottom: 28px;
+      max-width: 720px;
     }
 
     .tool-actions {
@@ -83,31 +81,49 @@
     .platform-strip {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
     }
 
     .platform-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       background: var(--white);
       border: 1px solid var(--gray-200);
       color: var(--gray-800);
-      border-radius: 4px;
-      padding: 7px 10px;
+      border-radius: 6px;
+      padding: 8px 12px;
       font-size: 13px;
       font-weight: 700;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.02);
     }
 
-    .accio-shot {
-      background: var(--white);
-      border: 1px solid rgba(0,191,165,0.16);
-      border-radius: 8px;
-      box-shadow: 0 18px 46px rgba(0,0,0,0.08);
-      padding: 12px;
+    .platform-mark {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: inline-grid;
+      place-items: center;
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1;
+      flex: 0 0 auto;
     }
 
-    .accio-shot img {
-      border-radius: 6px;
-      width: 100%;
-      height: auto;
+    .platform-mark.alibaba { background: #ff6a00; }
+    .platform-mark.cn1688 { background: #f56a00; }
+    .platform-mark.amazon { background: #111827; }
+    .platform-mark.shopify { background: #95bf47; }
+    .platform-mark.okki { background: #2374ff; }
+
+    .hero-proof {
+      display: inline-flex;
+      align-items: center;
+      color: #0a9f7b;
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 22px;
     }
 
     .tool-section {
@@ -536,13 +552,8 @@
     }
 
     @media (max-width: 980px) {
-      .tool-hero-inner,
       .tool-entry-grid {
         grid-template-columns: 1fr;
-      }
-
-      .tool-hero-inner {
-        gap: 30px;
       }
 
       .agent-toolbar {
@@ -613,7 +624,8 @@
     <div class="tool-hero-inner">
       <div>
         <span class="tool-eyebrow">Accio Work · AI Agent 平台</span>
-        <h1>把日常经营动作，交给 <em>Accio Work</em> 持续执行</h1>
+        <h1>全球首个为真实业务打造的 <em>AI Agent 平台</em></h1>
+        <div class="hero-proof">Accio Work 实战应用于多平台经营场景</div>
         <p>
           Accio Work 是面向真实业务打造的 AI Agent 平台。橙荃将其用于商家运营、产品表达、店铺建设、客户跟进和经营分析等场景，帮助团队把经验沉淀成可复制的工作流。
         </p>
@@ -622,24 +634,19 @@
           <a href="#tool-entries" class="btn-outline">查看应用入口</a>
         </div>
         <div class="platform-strip" aria-label="实战应用平台">
-          <span class="platform-chip">Alibaba.com</span>
-          <span class="platform-chip">1688诚信通</span>
-          <span class="platform-chip">Amazon</span>
-          <span class="platform-chip">Shopify</span>
-          <span class="platform-chip">OKKI CRM</span>
+          <span class="platform-chip"><span class="platform-mark alibaba">A</span>Alibaba.com</span>
+          <span class="platform-chip"><span class="platform-mark cn1688">1688</span>1688诚信通</span>
+          <span class="platform-chip"><span class="platform-mark amazon">a</span>Amazon</span>
+          <span class="platform-chip"><span class="platform-mark shopify">S</span>Shopify</span>
+          <span class="platform-chip"><span class="platform-mark okki">O</span>OKKI CRM</span>
         </div>
-      </div>
-      <div class="accio-shot">
-        <img src="assets/accio-work-hero.jpg" alt="Accio Work 全球首个为真实业务打造的 AI Agent 平台" />
       </div>
     </div>
   </section>
 
   <section class="tool-section alt" id="tool-entries">
     <div class="section-inner" style="margin-bottom:28px;">
-      <span class="section-tag">工具入口</span>
-      <h2 class="section-title">两套橙荃实战工具</h2>
-      <p class="section-subtitle" style="margin-bottom:0;">新手先看领航应用，熟练后可进入智能体分享包。</p>
+      <h2 class="section-title">人工智能工具入口</h2>
     </div>
     <div class="tool-entry-grid">
       <article class="tool-entry">
@@ -649,7 +656,7 @@
       </article>
       <article class="tool-entry">
         <strong>橙荃智能体分享包</strong>
-        <p>面向商家运营团队的 AW 智能体安装包，验证后打开下载列表。</p>
+        <p>面向企业版本的AWB智能体和团队智能应用集合。</p>
         <a href="#agent-section" class="btn-primary">打开下载入口</a>
       </article>
     </div>
