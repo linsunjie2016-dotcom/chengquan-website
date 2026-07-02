@@ -1,0 +1,14 @@
+/aw-agents
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/aw-agents.html
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/internal
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/internal.html
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/assets/internal-dashboard.js
+  Cache-Control: no-cache, no-store, must-revalidate

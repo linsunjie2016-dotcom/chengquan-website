@@ -6,7 +6,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 echo "Checking required files..."
 for file in \
   index.html about.html services.html cases.html aw-agents.html internal.html join.html contact.html global.html \
-  robots.txt sitemap.xml assets/styles.css assets/aw-packages.js assets/accio-guide.js assets/internal-dashboard.js
+  _headers robots.txt sitemap.xml assets/styles.css assets/aw-packages.js assets/accio-guide.js assets/internal-dashboard.js
 do
   if [ ! -f "$ROOT/$file" ]; then
     echo "Missing: $file" >&2
