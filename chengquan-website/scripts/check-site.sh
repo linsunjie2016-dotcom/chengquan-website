@@ -5,8 +5,8 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 
 echo "Checking required files..."
 for file in \
-  index.html about.html services.html cases.html aw-agents.html join.html contact.html global.html \
-  robots.txt sitemap.xml assets/styles.css assets/aw-packages.js assets/accio-guide.js
+  index.html about.html services.html cases.html aw-agents.html internal.html join.html contact.html global.html \
+  robots.txt sitemap.xml assets/styles.css assets/aw-packages.js assets/accio-guide.js assets/internal-dashboard.js
 do
   if [ ! -f "$ROOT/$file" ]; then
     echo "Missing: $file" >&2
@@ -17,6 +17,7 @@ done
 echo "Checking JavaScript syntax..."
 node --check "$ROOT/assets/accio-guide.js" >/dev/null
 node --check "$ROOT/assets/aw-packages.js" >/dev/null
+node --check "$ROOT/assets/internal-dashboard.js" >/dev/null
 
 echo "Checking AI tools page..."
 if grep -q '<script src="assets/aw-packages.js"' "$ROOT/aw-agents.html"; then
@@ -37,6 +38,22 @@ fi
 echo "Checking home page..."
 if grep -Eq 'Boss|岗位|正在招募|投递|客户经理招聘' "$ROOT/index.html"; then
   echo "Home page still contains recruiting content." >&2
+  exit 1
+fi
+
+echo "Checking internal page..."
+if grep -q '<script src="assets/internal-dashboard.js"' "$ROOT/internal.html"; then
+  echo "internal-dashboard.js should not load before password unlock." >&2
+  exit 1
+fi
+
+if ! grep -q 'PASSWORD = "cqyy"' "$ROOT/internal.html"; then
+  echo "Internal page password gate is missing or changed." >&2
+  exit 1
+fi
+
+if grep -q 'internal.html' "$ROOT/sitemap.xml"; then
+  echo "Internal page should not be listed in sitemap.xml." >&2
   exit 1
 fi
 

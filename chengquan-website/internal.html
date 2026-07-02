@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>内部入口 | 橙荃 Chengquan</title>
+  <meta name="description" content="橙荃内部经营数据入口，需输入内部访问密码后查看。" />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://www.chengquanai.com/internal.html" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    .internal-hero {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a1a00 100%);
+      color: white;
+      padding: 72px 24px 56px;
+      text-align: center;
+    }
+    .internal-hero h1 {
+      font-size: clamp(26px, 4vw, 42px);
+      line-height: 1.25;
+      margin: 12px 0;
+      color: white;
+    }
+    .internal-hero p {
+      color: rgba(255,255,255,0.72);
+      max-width: 640px;
+      margin: 0 auto;
+      font-size: 16px;
+    }
+    .internal-gate {
+      max-width: 520px;
+      margin: -34px auto 0;
+      background: white;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 28px;
+      box-shadow: 0 18px 48px rgba(0,0,0,0.12);
+    }
+    .internal-gate label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+    }
+    .internal-form {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .internal-form input {
+      flex: 1;
+      min-width: 0;
+      height: 46px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 0 14px;
+      font-size: 15px;
+      outline: none;
+    }
+    .internal-form input:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(255,106,0,0.12);
+    }
+    .internal-form button {
+      height: 46px;
+      border: 0;
+      background: var(--orange);
+      color: white;
+      padding: 0 24px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .internal-form button:hover { background: var(--orange-dark); }
+    .internal-hint {
+      margin-top: 12px;
+      color: #777;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .internal-error {
+      margin-top: 12px;
+      color: #c62828;
+      font-size: 13px;
+      display: none;
+    }
+    .internal-view {
+      display: none;
+      padding: 28px 24px 44px;
+      background: #f4f7fb;
+    }
+    .dashboard-shell {
+      max-width: 1680px;
+      margin: 0 auto;
+      background: white;
+      border: 1px solid #dde6f1;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 12px 36px rgba(15,23,42,0.10);
+    }
+    .dashboard-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 18px;
+      border-bottom: 1px solid #e7edf5;
+      background: #fff;
+    }
+    .dashboard-toolbar strong {
+      color: #1a1a1a;
+      font-size: 15px;
+    }
+    .dashboard-toolbar span {
+      color: #777;
+      font-size: 13px;
+    }
+    .dashboard-frame {
+      width: 100%;
+      height: calc(100vh - 120px);
+      min-height: 720px;
+      border: 0;
+      display: block;
+      background: white;
+    }
+    @media (max-width: 640px) {
+      .internal-form { flex-direction: column; align-items: stretch; }
+      .internal-form button { width: 100%; }
+      .dashboard-frame { min-height: 680px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="index.html"><img src="https://sc01.alicdn.com/kf/H0e2f57e692944153a755723189e5e35er.png" alt="橙荃" class="logo-img" /></a>
+    <nav><ul id="nav-list">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="about.html">关于橙荃</a></li>
+        <li><a href="services.html">服务体系</a></li>
+        <li><a href="cases.html">客户案例</a></li>
+        <li><a href="aw-agents.html">人工智能工具</a></li>
+        <li><a href="internal.html" class="active">内部入口</a></li>
+        <li><a href="join.html">加入我们</a></li>
+        <li><a href="global.html">English</a></li>
+        <li><a href="contact.html" class="header-cta">立即咨询</a></li>
+      </ul></nav>
+    <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<div class="internal-hero">
+  <span class="section-tag">Internal Access</span>
+  <h1>内部入口</h1>
+  <p>橙荃内部经营数据看板入口。请输入访问密码后查看最新数据。</p>
+</div>
+
+<main>
+  <section style="padding:0 24px 72px;">
+    <div id="passwordGate" class="internal-gate">
+      <form id="internalForm">
+        <label for="internalPassword">请输入访问密码</label>
+        <div class="internal-form">
+          <input id="internalPassword" type="password" autocomplete="current-password" placeholder="输入密码" />
+          <button type="submit">进入查看</button>
+        </div>
+        <div class="internal-hint">该页面用于内部数据查看，内容按最新附件更新。</div>
+        <div id="passwordError" class="internal-error">密码不正确，请重新输入。</div>
+      </form>
+    </div>
+  </section>
+
+  <section id="internalView" class="internal-view" aria-live="polite">
+    <div class="dashboard-shell">
+      <div class="dashboard-toolbar">
+        <strong>P4P 经营看板</strong>
+        <span id="dashboardStatus">正在加载数据...</span>
+      </div>
+      <iframe id="dashboardFrame" class="dashboard-frame" title="P4P 经营看板"></iframe>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <img src="https://sc01.alicdn.com/kf/H0e2f57e692944153a755723189e5e35er.png" alt="橙荃" class="footer-logo" />
+    <div class="footer-links">
+      <a href="about.html">关于橙荃</a>
+      <a href="services.html">服务体系</a>
+      <a href="cases.html">客户案例</a>
+      <a href="aw-agents.html">人工智能工具</a>
+      <a href="internal.html">内部入口</a>
+      <a href="join.html">加入我们</a>
+      <a href="global.html">English</a>
+      <a href="contact.html">联系我们</a>
+      <a href="sitemap.xml">Sitemap</a>
+    </div>
+    <div class="footer-copy">© 2026 广东橙荃互联网科技有限公司 · Chengquan Alibaba Partner</div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('nav-list').classList.toggle('open');}
+
+(function(){
+  var PASSWORD = "cqyy";
+  var form = document.getElementById("internalForm");
+  var input = document.getElementById("internalPassword");
+  var error = document.getElementById("passwordError");
+  var gate = document.getElementById("passwordGate");
+  var view = document.getElementById("internalView");
+  var frame = document.getElementById("dashboardFrame");
+  var status = document.getElementById("dashboardStatus");
+
+  function loadDashboard(){
+    var script = document.createElement("script");
+    script.src = "assets/internal-dashboard.js";
+    script.onload = function(){
+      if (!window.INTERNAL_DASHBOARD_HTML) {
+        status.textContent = "数据文件为空，请更新后重试。";
+        return;
+      }
+      frame.srcdoc = window.INTERNAL_DASHBOARD_HTML;
+      status.textContent = "已加载最新数据";
+    };
+    script.onerror = function(){
+      status.textContent = "数据加载失败，请检查文件是否已更新。";
+    };
+    document.body.appendChild(script);
+  }
+
+  form.addEventListener("submit", function(event){
+    event.preventDefault();
+    if (input.value === PASSWORD) {
+      error.style.display = "none";
+      gate.style.display = "none";
+      view.style.display = "block";
+      loadDashboard();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    error.style.display = "block";
+    input.focus();
+    input.select();
+  });
+})();
+</script>
+</body>
+</html>

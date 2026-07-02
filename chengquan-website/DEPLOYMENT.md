@@ -51,8 +51,17 @@ CHENGQUAN_DEPLOY_REMOTE="https://github.com/账号/仓库.git" ./scripts/deploy-
 - 必要页面和资源是否存在
 - JavaScript 文件语法是否正常
 - 人工智能工具页是否保持智能体包懒加载
+- 内部入口页是否保持数据看板懒加载
 - 首页是否没有招聘信息
 - 新手领航内容是否没有出现不需要的词
+
+## 内部入口日报更新
+
+以后你提供同类型 HTML 数据文件后，更新位置固定为：
+
+`assets/internal-dashboard.js`
+
+我会把新的 HTML 转成这个数据文件，页面仍然通过 `internal.html` 访问，密码保持为 `cqyy`。
 
 ## 注意
 

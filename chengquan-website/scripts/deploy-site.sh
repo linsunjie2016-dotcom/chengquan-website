@@ -20,7 +20,7 @@ if ! git config user.email >/dev/null 2>&1 && ! git config --global user.email >
 fi
 
 rm -rf "$WORK_DIR"
-git clone "$REMOTE_URL" "$WORK_DIR"
+git clone --depth 1 --filter=blob:none "$REMOTE_URL" "$WORK_DIR"
 
 mkdir -p "$WORK_DIR/$REMOTE_SUBDIR"
 
