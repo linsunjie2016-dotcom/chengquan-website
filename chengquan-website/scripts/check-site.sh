@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+
+echo "Checking required files..."
+for file in \
+  index.html about.html services.html cases.html aw-agents.html join.html contact.html global.html \
+  robots.txt sitemap.xml assets/styles.css assets/aw-packages.js assets/accio-guide.js assets/accio-work-hero.jpg
+do
+  if [ ! -f "$ROOT/$file" ]; then
+    echo "Missing: $file" >&2
+    exit 1
+  fi
+done
+
+echo "Checking JavaScript syntax..."
+node --check "$ROOT/assets/accio-guide.js" >/dev/null
+node --check "$ROOT/assets/aw-packages.js" >/dev/null
+
+echo "Checking AI tools page..."
+if grep -q '<script src="assets/aw-packages.js"' "$ROOT/aw-agents.html"; then
+  echo "aw-packages.js should not load before password unlock." >&2
+  exit 1
+fi
+
+if grep -q '可下载智能体' "$ROOT/aw-agents.html"; then
+  echo "AI tools page should not show downloadable agent count before unlock." >&2
+  exit 1
+fi
+
+if grep -q '诊断' "$ROOT/aw-agents.html" "$ROOT/assets/accio-guide.js"; then
+  echo "AI tools page or guide still contains the disallowed word." >&2
+  exit 1
+fi
+
+echo "Checking home page..."
+if grep -Eq 'Boss|岗位|正在招募|投递|客户经理招聘' "$ROOT/index.html"; then
+  echo "Home page still contains recruiting content." >&2
+  exit 1
+fi
+
+echo "OK"

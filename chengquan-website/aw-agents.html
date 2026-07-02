@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>人工智能工具 | 橙荃 · Accio Work 实战应用</title>
+  <meta name="description" content="橙荃人工智能工具中心，介绍 Accio Work 在 Alibaba.com、1688诚信通、Amazon、Shopify、OKKI CRM 等业务场景中的实战应用，并提供新手领航提示词和智能体分享包。" />
+  <meta name="keywords" content="橙荃,人工智能工具,Accio Work,阿里国际站AI工具,1688诚信通,Amazon,Shopify,OKKI CRM,跨境电商AI" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.chengquanai.com/aw-agents.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.chengquanai.com/aw-agents.html" />
+  <meta property="og:title" content="人工智能工具 | 橙荃" />
+  <meta property="og:description" content="Accio Work 实战应用与橙荃智能体分享包。" />
+  <meta property="og:image" content="https://sc01.alicdn.com/kf/H0e2f57e692944153a755723189e5e35er.png" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    .tool-hero {
+      background: linear-gradient(180deg, #f4fffb 0%, #ffffff 62%, #f7f7f7 100%);
+      padding: 72px 24px 56px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .tool-hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
+      gap: 48px;
+      align-items: center;
+    }
+
+    .tool-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      color: #0a9f7b;
+      background: rgba(0,191,165,0.1);
+      border: 1px solid rgba(0,191,165,0.22);
+      border-radius: 18px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .tool-hero h1 {
+      color: var(--black);
+      font-size: clamp(30px, 4.6vw, 52px);
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .tool-hero h1 em {
+      color: var(--orange);
+      font-style: normal;
+    }
+
+    .tool-hero p {
+      color: var(--gray-600);
+      font-size: 17px;
+      line-height: 1.85;
+      margin-bottom: 28px;
+    }
+
+    .tool-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 26px;
+    }
+
+    .tool-actions .btn-outline {
+      color: var(--gray-800);
+      border-color: var(--gray-200);
+    }
+
+    .tool-actions .btn-outline:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+      background: #fff7f0;
+    }
+
+    .platform-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .platform-chip {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      color: var(--gray-800);
+      border-radius: 4px;
+      padding: 7px 10px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .accio-shot {
+      background: var(--white);
+      border: 1px solid rgba(0,191,165,0.16);
+      border-radius: 8px;
+      box-shadow: 0 18px 46px rgba(0,0,0,0.08);
+      padding: 12px;
+    }
+
+    .accio-shot img {
+      border-radius: 6px;
+      width: 100%;
+      height: auto;
+    }
+
+    .tool-section {
+      padding: 64px 24px;
+      background: var(--white);
+    }
+
+    .tool-section.alt {
+      background: var(--gray-100);
+    }
+
+    .tool-entry-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .tool-entry {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      padding: 28px;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+    }
+
+    .tool-entry strong {
+      display: block;
+      color: var(--black);
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .tool-entry p {
+      color: var(--gray-600);
+      margin-bottom: 20px;
+    }
+
+    .password-card {
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .password-card h2 {
+      color: var(--black);
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .password-card p {
+      color: var(--gray-600);
+      margin-bottom: 18px;
+    }
+
+    .password-form {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .password-input {
+      min-height: 46px;
+      border: 1px solid var(--gray-200);
+      border-radius: 4px;
+      padding: 0 14px;
+      font: inherit;
+      outline: none;
+    }
+
+    .password-input:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(255,106,0,0.12);
+    }
+
+    .unlock-button {
+      background: var(--orange);
+      color: var(--white);
+      min-height: 46px;
+      border: 1px solid var(--orange);
+      border-radius: 4px;
+      padding: 0 22px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .unlock-button:hover {
+      background: var(--orange-dark);
+      border-color: var(--orange-dark);
+    }
+
+    .password-note,
+    .form-message {
+      color: var(--gray-600);
+      font-size: 13px;
+      min-height: 22px;
+    }
+
+    .form-message {
+      color: var(--orange-dark);
+      font-weight: 700;
+    }
+
+    .guide-list,
+    .agent-list {
+      max-width: 1200px;
+      margin: 28px auto 0;
+      display: grid;
+      gap: 18px;
+    }
+
+    .guide-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .guide-head {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr);
+      gap: 18px;
+      align-items: center;
+      padding: 22px;
+      border-bottom: 1px solid var(--gray-200);
+      background: #fffaf6;
+    }
+
+    .guide-num,
+    .agent-rank {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      background: var(--orange);
+      font-weight: 800;
+    }
+
+    .guide-head h3 {
+      color: var(--black);
+      font-size: 21px;
+      margin-bottom: 4px;
+    }
+
+    .guide-head p,
+    .guide-desc {
+      color: var(--gray-600);
+      font-size: 14px;
+    }
+
+    .guide-desc {
+      padding: 16px 22px;
+      border-bottom: 1px solid var(--gray-200);
+      background: var(--white);
+    }
+
+    .guide-step {
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .guide-step:last-child {
+      border-bottom: none;
+    }
+
+    .guide-step summary {
+      cursor: pointer;
+      padding: 16px 22px;
+      font-weight: 700;
+      color: var(--black);
+      list-style: none;
+    }
+
+    .guide-step summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .guide-step summary::after {
+      content: "+";
+      float: right;
+      color: var(--orange);
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .guide-step[open] summary::after {
+      content: "-";
+    }
+
+    .guide-body {
+      padding: 0 22px 20px;
+    }
+
+    .guide-hint {
+      background: var(--gray-100);
+      color: var(--gray-600);
+      border-left: 3px solid var(--orange);
+      border-radius: 4px;
+      padding: 10px 12px;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .prompt-box {
+      background: #111111;
+      color: rgba(255,255,255,0.86);
+      border-radius: 8px;
+      padding: 16px;
+      white-space: pre-wrap;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+      line-height: 1.75;
+      max-height: 320px;
+      overflow: auto;
+      margin-bottom: 12px;
+    }
+
+    .copy-button {
+      background: var(--white);
+      border: 1px solid var(--orange);
+      color: var(--orange);
+      border-radius: 4px;
+      min-height: 36px;
+      padding: 0 14px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 14px 22px 20px;
+    }
+
+    .tag,
+    .agent-chip,
+    .agent-badge,
+    .agent-tier {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 4px;
+      min-height: 24px;
+      padding: 2px 8px;
+      font-size: 12px;
+    }
+
+    .tag,
+    .agent-chip,
+    .agent-tier {
+      background: var(--gray-100);
+      color: var(--gray-600);
+    }
+
+    .agent-toolbar {
+      max-width: 1200px;
+      margin: 28px auto 0;
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) auto;
+      gap: 14px;
+    }
+
+    .agent-search {
+      min-height: 46px;
+      border: 1px solid var(--gray-200);
+      border-radius: 4px;
+      padding: 0 14px;
+      font: inherit;
+    }
+
+    .agent-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .agent-filter {
+      border: 1px solid var(--gray-200);
+      background: var(--white);
+      color: var(--gray-800);
+      border-radius: 4px;
+      min-height: 40px;
+      padding: 0 13px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .agent-filter.active,
+    .agent-filter:hover {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: var(--white);
+    }
+
+    .agent-row {
+      display: grid;
+      grid-template-columns: 54px minmax(0, 1fr) auto;
+      gap: 20px;
+      align-items: center;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      padding: 22px;
+    }
+
+    .agent-title-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .agent-title-line h3 {
+      color: var(--black);
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .agent-badge {
+      background: var(--orange);
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .agent-summary {
+      color: var(--gray-600);
+      margin-bottom: 12px;
+    }
+
+    .agent-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .agent-actions {
+      display: grid;
+      gap: 8px;
+      min-width: 148px;
+    }
+
+    .agent-download,
+    .agent-method {
+      text-align: center;
+      border-radius: 4px;
+      min-height: 40px;
+      padding: 9px 14px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .agent-download {
+      background: var(--orange);
+      color: var(--white);
+    }
+
+    .agent-method {
+      background: var(--white);
+      color: var(--gray-800);
+      border: 1px solid var(--gray-200);
+    }
+
+    .empty-state {
+      background: var(--white);
+      border: 1px dashed var(--gray-200);
+      border-radius: 8px;
+      color: var(--gray-600);
+      padding: 32px;
+      text-align: center;
+    }
+
+    .is-hidden {
+      display: none !important;
+    }
+
+    dialog {
+      border: none;
+      padding: 0;
+      border-radius: 8px;
+      max-width: min(620px, calc(100% - 32px));
+      box-shadow: 0 24px 70px rgba(0,0,0,0.28);
+    }
+
+    dialog::backdrop {
+      background: rgba(0,0,0,0.48);
+    }
+
+    .agent-modal {
+      padding: 28px;
+      background: var(--white);
+    }
+
+    .agent-modal h3 {
+      color: var(--black);
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+
+    .agent-modal pre {
+      white-space: pre-wrap;
+      font: inherit;
+      color: var(--gray-600);
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+
+    .agent-modal-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .tool-hero-inner,
+      .tool-entry-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tool-hero-inner {
+        gap: 30px;
+      }
+
+      .agent-toolbar {
+        grid-template-columns: 1fr;
+      }
+
+      .agent-filters {
+        justify-content: flex-start;
+      }
+
+      .agent-row {
+        grid-template-columns: 46px minmax(0, 1fr);
+      }
+
+      .agent-actions {
+        grid-column: 1 / -1;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .tool-hero {
+        padding: 46px 20px;
+      }
+
+      .password-form,
+      .guide-head,
+      .agent-row,
+      .agent-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .tool-actions a,
+      .unlock-button {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html">
+      <img src="https://sc01.alicdn.com/kf/H0e2f57e692944153a755723189e5e35er.png" alt="橙荃 广东橙荃互联网科技有限公司 Chengquan Alibaba Partner Logo" class="logo-img" />
+    </a>
+    <nav id="main-nav">
+      <ul id="nav-list">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="about.html">关于橙荃</a></li>
+        <li><a href="services.html">服务体系</a></li>
+        <li><a href="cases.html">客户案例</a></li>
+        <li><a href="aw-agents.html" class="active">人工智能工具</a></li>
+        <li><a href="join.html">加入我们</a></li>
+        <li><a href="global.html">English</a></li>
+        <li><a href="contact.html" class="header-cta">立即咨询</a></li>
+      </ul>
+    </nav>
+    <div class="menu-toggle" onclick="toggleMenu()" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="tool-hero">
+    <div class="tool-hero-inner">
+      <div>
+        <span class="tool-eyebrow">Accio Work · AI Agent 平台</span>
+        <h1>把日常经营动作，交给 <em>Accio Work</em> 持续执行</h1>
+        <p>
+          Accio Work 是面向真实业务打造的 AI Agent 平台。橙荃将其用于商家运营、产品表达、店铺建设、客户跟进和经营分析等场景，帮助团队把经验沉淀成可复制的工作流。
+        </p>
+        <div class="tool-actions">
+          <a href="https://www.accio-ai.com/work" target="_blank" rel="noopener" class="btn-primary">下载 Accio Work</a>
+          <a href="#tool-entries" class="btn-outline">查看应用入口</a>
+        </div>
+        <div class="platform-strip" aria-label="实战应用平台">
+          <span class="platform-chip">Alibaba.com</span>
+          <span class="platform-chip">1688诚信通</span>
+          <span class="platform-chip">Amazon</span>
+          <span class="platform-chip">Shopify</span>
+          <span class="platform-chip">OKKI CRM</span>
+        </div>
+      </div>
+      <div class="accio-shot">
+        <img src="assets/accio-work-hero.jpg" alt="Accio Work 全球首个为真实业务打造的 AI Agent 平台" />
+      </div>
+    </div>
+  </section>
+
+  <section class="tool-section alt" id="tool-entries">
+    <div class="section-inner" style="margin-bottom:28px;">
+      <span class="section-tag">工具入口</span>
+      <h2 class="section-title">两套橙荃实战工具</h2>
+      <p class="section-subtitle" style="margin-bottom:0;">新手先看领航应用，熟练后可进入智能体分享包。</p>
+    </div>
+    <div class="tool-entry-grid">
+      <article class="tool-entry">
+        <strong>Accio Work 启航应用包</strong>
+        <p>快速安装、店铺应用、选品、主图、详情页、店铺装修和客户背调常用提示词。</p>
+        <a href="#guide-section" class="btn-primary">打开新手领航</a>
+      </article>
+      <article class="tool-entry">
+        <strong>橙荃智能体分享包</strong>
+        <p>面向商家运营团队的 AW 智能体安装包，验证后打开下载列表。</p>
+        <a href="#agent-section" class="btn-primary">打开下载入口</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="tool-section" id="guide-section">
+    <div class="section-inner" style="margin-bottom:28px;">
+      <span class="section-tag">Accio Work 新手领航</span>
+      <h2 class="section-title">快速安装和店铺应用</h2>
+      <p class="section-subtitle" style="margin-bottom:0;">输入密码后即可打开并复制内容。</p>
+    </div>
+    <div class="password-card" id="guideLock">
+      <h2>请输入访问密码</h2>
+      <p>验证通过后打开 Accio Work 启航应用包。</p>
+      <form class="password-form" id="guideForm">
+        <input class="password-input" id="guidePassword" type="password" placeholder="请输入密码" autocomplete="off" />
+        <button class="unlock-button" type="submit">打开复制内容</button>
+      </form>
+      <div class="form-message" id="guideMessage" role="status" aria-live="polite"></div>
+      <div class="password-note">详情请咨询橙荃商家运营部</div>
+    </div>
+    <div class="guide-list is-hidden" id="guideList" aria-live="polite"></div>
+  </section>
+
+  <section class="tool-section alt" id="agent-section">
+    <div class="section-inner" style="margin-bottom:28px;">
+      <span class="section-tag">橙荃智能体分享包</span>
+      <h2 class="section-title">AW 智能体下载入口</h2>
+      <p class="section-subtitle" style="margin-bottom:0;">输入访问密码后打开下载列表，下载后按安装说明配置到自己的 AW 后台。</p>
+    </div>
+    <div class="password-card" id="agentLock">
+      <h2>请输入访问密码</h2>
+      <p>验证通过后即可打开智能体下载列表。</p>
+      <form class="password-form" id="agentForm">
+        <input class="password-input" id="agentPassword" type="password" placeholder="请输入密码" autocomplete="off" />
+        <button class="unlock-button" type="submit">打开下载列表</button>
+      </form>
+      <div class="form-message" id="agentMessage" role="status" aria-live="polite"></div>
+      <div class="password-note">详情请咨询橙荃商家运营部</div>
+    </div>
+    <div class="agent-toolbar is-hidden" id="agentToolbar">
+      <input class="agent-search" id="agentSearch" type="search" placeholder="搜索智能体、板块、标签..." autocomplete="off" />
+      <div class="agent-filters" id="agentFilters" aria-label="智能体分类">
+        <button class="agent-filter active" data-category="all" type="button">全部</button>
+        <button class="agent-filter" data-category="销售" type="button">销售</button>
+        <button class="agent-filter" data-category="视觉" type="button">视觉</button>
+        <button class="agent-filter" data-category="交付" type="button">交付</button>
+        <button class="agent-filter" data-category="流量" type="button">流量</button>
+        <button class="agent-filter" data-category="策划" type="button">策划</button>
+        <button class="agent-filter" data-category="买家" type="button">买家</button>
+        <button class="agent-filter" data-category="供应链" type="button">供应链</button>
+        <button class="agent-filter" data-category="采集" type="button">采集</button>
+        <button class="agent-filter" data-category="总控" type="button">总控</button>
+        <button class="agent-filter" data-category="风控" type="button">风控</button>
+      </div>
+    </div>
+    <div class="agent-list is-hidden" id="agentList" aria-live="polite"></div>
+  </section>
+</main>
+
+<dialog id="detailDialog">
+  <div class="agent-modal">
+    <h3 id="detailTitle">安装方法</h3>
+    <pre id="detailBody"></pre>
+    <div class="agent-modal-actions">
+      <a class="agent-download" id="detailDownload">下载通用安装包</a>
+      <button class="agent-method" id="closeDetail" type="button">关闭</button>
+    </div>
+  </div>
+</dialog>
+
+<footer>
+  <div class="footer-inner">
+    <img src="https://sc01.alicdn.com/kf/H0e2f57e692944153a755723189e5e35er.png" alt="橙荃 广东橙荃互联网科技有限公司" class="footer-logo" />
+    <div class="footer-links">
+      <a href="about.html">关于橙荃</a>
+      <a href="services.html">服务体系</a>
+      <a href="cases.html">客户案例</a>
+      <a href="aw-agents.html">人工智能工具</a>
+      <a href="join.html">加入我们</a>
+      <a href="global.html">English</a>
+      <a href="contact.html">联系我们</a>
+      <a href="sitemap.xml">Sitemap</a>
+    </div>
+    <div class="footer-copy">
+      © 2026 广东橙荃互联网科技有限公司 · chengquanai.com<br />
+      阿里巴巴国际站官方授权本地渠道商 | 东莞水乡服务中心
+    </div>
+  </div>
+</footer>
+
+<script>
+const GUIDE_PASSWORD = "chengquan666";
+const AGENT_PASSWORD = "400*400";
+const agentState = { category: "all", query: "" };
+let agentPackages = [];
+
+const roleMeta = {
+  "优质商机获取总控": { category: "总控", tier: "TL", summary: "统筹资料完整度、任务拆分与全链路推进，驱动优质大买家获取闭环。", skillCount: 9 },
+  "店铺资料采集员": { category: "采集", tier: "L1", summary: "采集店铺公开页、产品页和能力页信息，沉淀可复用的结构化底稿。", skillCount: 5 },
+  "供应链优势分析师": { category: "供应链", tier: "L2", summary: "从质价比、交付确定性、认证能力和服务响应中提炼供应链优势。", skillCount: 6 },
+  "B端买家分析师": { category: "买家", tier: "L2", summary: "识别核心 B 端买家类型、采购动机和体量差异，明确主攻客户画像。", skillCount: 8 },
+  "标题与主图策划师": { category: "策划", tier: "L2", summary: "把买家分类、供应链优势和产品信息转成标题与主图表达方案。", skillCount: 7 },
+  "优质流量测试官": { category: "流量", tier: "L2", summary: "设计 P4P、品牌广告和优质流量测试节奏，把曝光转成有效商机。", skillCount: 7 },
+  "客户交付报告官": { category: "交付", tier: "L3", summary: "把团队成果整理为客户可直接阅读、确认和执行的交付报告。", skillCount: 6 },
+  "销售开发经理": { category: "销售", tier: "L2", summary: "负责客户开发、询盘回复、报价跟进和谈判推进，把流量与询盘转成订单机会。", skillCount: 11 },
+  "销售开发经理 (更新版)": { category: "销售", tier: "L2", summary: "集成询盘五步法 v3 SOP，支持站内询盘分析、站外背调和销售开发跟进。", skillCount: 11 },
+  "主图设计师": { category: "视觉", tier: "L2", summary: "负责主图卖点表达、详情页结构、视觉信息排序和转化导向的页面策划。", skillCount: 12 },
+  "数据分析与财务风控经理": { category: "风控", tier: "L2", summary: "汇总经营、利润、投放和风险数据，输出清晰的经营判断与预警。", skillCount: 1 }
+};
+
+function toggleMenu() {
+  document.getElementById("nav-list").classList.toggle("open");
+}
+
+function loadScript(src, globalName) {
+  if (window[globalName]) return Promise.resolve(window[globalName]);
+  return new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = src;
+    script.async = true;
+    script.onload = () => window[globalName] ? resolve(window[globalName]) : reject(new Error("empty data"));
+    script.onerror = () => reject(new Error("load failed"));
+    document.head.appendChild(script);
+  });
+}
+
+function sanitizeText(text) {
+  return String(text || "").replaceAll("\u8bca\u65ad", "分析");
+}
+
+function formatBytes(bytes) {
+  if (!bytes) return "0 MB";
+  const units = ["B", "KB", "MB", "GB"];
+  let value = bytes;
+  let index = 0;
+  while (value >= 1024 && index < units.length - 1) {
+    value /= 1024;
+    index += 1;
+  }
+  return `${value.toFixed(index === 0 ? 0 : 1)} ${units[index]}`;
+}
+
+function titleOf(item) {
+  return sanitizeText(item.title || item.agentName || "未命名智能体");
+}
+
+function metaOf(item) {
+  return roleMeta[titleOf(item)] || roleMeta[sanitizeText(item.agentName)] || {};
+}
+
+function descriptionOf(item) {
+  const meta = metaOf(item);
+  if (meta.summary) return meta.summary;
+  const raw = sanitizeText(item.description || "下载后解压，双击安装器完成配置。").replace(/\s+/g, " ").trim();
+  return raw.length > 82 ? `${raw.slice(0, 82)}...` : raw;
+}
+
+function copyText(text, button) {
+  navigator.clipboard.writeText(text).then(() => {
+    const old = button.textContent;
+    button.textContent = "已复制";
+    setTimeout(() => { button.textContent = old; }, 1600);
+  });
+}
+
+function renderGuide(guide) {
+  const list = document.getElementById("guideList");
+  list.innerHTML = "";
+  guide.scenes.forEach((scene) => {
+    const card = document.createElement("article");
+    card.className = "guide-card";
+    card.innerHTML = `
+      <div class="guide-head">
+        <div class="guide-num">${scene.number}</div>
+        <div>
+          <h3>${scene.title}</h3>
+          <p>${scene.en}</p>
+        </div>
+      </div>
+      <div class="guide-desc">${scene.desc}</div>
+      <div class="guide-steps"></div>
+      <div class="tag-row"></div>
+    `;
+
+    const steps = card.querySelector(".guide-steps");
+    scene.steps.forEach((step) => {
+      const detail = document.createElement("details");
+      detail.className = "guide-step";
+      detail.innerHTML = `
+        <summary>${step.name}</summary>
+        <div class="guide-body">
+          <div class="guide-hint">${step.hint}</div>
+          <div class="prompt-box"></div>
+          <button class="copy-button" type="button">复制提示词</button>
+        </div>
+      `;
+      detail.querySelector(".prompt-box").textContent = step.prompt;
+      detail.querySelector(".copy-button").addEventListener("click", () => copyText(step.prompt, detail.querySelector(".copy-button")));
+      steps.appendChild(detail);
+    });
+
+    const tags = card.querySelector(".tag-row");
+    scene.tags.forEach((tag) => {
+      const item = document.createElement("span");
+      item.className = "tag";
+      item.textContent = tag;
+      tags.appendChild(item);
+    });
+    list.appendChild(card);
+  });
+}
+
+document.getElementById("guideForm").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const input = document.getElementById("guidePassword");
+  const message = document.getElementById("guideMessage");
+  if (input.value.trim() !== GUIDE_PASSWORD) {
+    message.textContent = "密码不正确，请重新输入。";
+    input.focus();
+    return;
+  }
+  message.textContent = "验证通过，正在打开内容...";
+  try {
+    const guide = await loadScript("assets/accio-guide.js", "ACCIO_GUIDE");
+    renderGuide(guide);
+    document.getElementById("guideLock").classList.add("is-hidden");
+    document.getElementById("guideList").classList.remove("is-hidden");
+  } catch (error) {
+    message.textContent = "内容加载失败，请刷新后重试。";
+  }
+});
+
+function searchableText(item) {
+  const meta = metaOf(item);
+  return [
+    titleOf(item),
+    sanitizeText(item.agentName),
+    sanitizeText(item.description),
+    meta.category,
+    meta.tier,
+    ...(item.tags || []).map(sanitizeText),
+    ...(item.skills || []).map(sanitizeText)
+  ].filter(Boolean).join(" ").toLowerCase();
+}
+
+function filteredPackages() {
+  const q = agentState.query.trim().toLowerCase();
+  return agentPackages.filter((item) => {
+    const meta = metaOf(item);
+    const categoryMatch = agentState.category === "all" || meta.category === agentState.category;
+    const queryMatch = !q || searchableText(item).includes(q);
+    return categoryMatch && queryMatch;
+  });
+}
+
+function renderAgents() {
+  const list = document.getElementById("agentList");
+  const items = filteredPackages();
+  list.innerHTML = "";
+  if (!items.length) {
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.textContent = "没有匹配的智能体包，请换个关键词试试。";
+    list.appendChild(empty);
+    return;
+  }
+
+  items.forEach((item, index) => {
+    const meta = metaOf(item);
+    const tags = [...(item.tags || [])].slice(0, 3).map(sanitizeText);
+    const row = document.createElement("article");
+    row.className = "agent-row";
+    row.innerHTML = `
+      <div class="agent-rank">${String(index + 1).padStart(2, "0")}</div>
+      <div>
+        <div class="agent-title-line">
+          <span class="agent-badge">${meta.category || "智能体"}</span>
+          <span class="agent-tier">${meta.tier || "READY"}</span>
+          <h3>${titleOf(item)}</h3>
+        </div>
+        <p class="agent-summary">${descriptionOf(item)}</p>
+        <div class="agent-meta"></div>
+      </div>
+      <div class="agent-actions">
+        <a class="agent-download">Windows 下载</a>
+        <a class="agent-download">macOS 下载</a>
+        <button class="agent-method" type="button">安装方法</button>
+      </div>
+    `;
+
+    const metaBox = row.querySelector(".agent-meta");
+    const skillText = meta.skillCount ? `${meta.skillCount} 个随包技能` : "技能随包携带";
+    [skillText, formatBytes(item.sizeBytes), ...tags].filter(Boolean).forEach((text) => {
+      const chip = document.createElement("span");
+      chip.className = "agent-chip";
+      chip.textContent = text;
+      metaBox.appendChild(chip);
+    });
+
+    row.querySelectorAll(".agent-download").forEach((download) => {
+      download.href = item.file || "#";
+      download.download = item.downloadName || "AW-Agent.zip";
+    });
+    row.querySelector(".agent-method").addEventListener("click", () => openAgentDetail(item));
+    list.appendChild(row);
+  });
+}
+
+function openAgentDetail(item) {
+  const file = item.file || "#";
+  document.getElementById("detailTitle").textContent = `${titleOf(item)} · 安装方法`;
+  document.getElementById("detailBody").textContent = [
+    "Windows 安装：",
+    "1. 点击 Windows 下载，保存智能体分享包 zip。",
+    "2. 如果出现无法打开文件，右键下载的 zip，选择属性，勾选解除锁定，点应用。",
+    "3. 重新解压 zip，系统提示时输入你收到的解压密码。",
+    "4. 打开 AW，并确认已经登录自己的账号。",
+    "5. 双击解压目录里的 install_aw_agent.bat。",
+    "6. 命令窗口出现 Done 后，回到 AW 刷新或重启。",
+    "",
+    "macOS 安装：",
+    "1. 点击 macOS 下载，保存智能体分享包 zip。",
+    "2. 双击 zip 解压，或右键选择打开方式进行解压。",
+    "3. 打开 AW，并确认已经登录自己的账号。",
+    "4. 双击解压目录里的 install_aw_agent_mac.command。",
+    "5. 如果系统提示无法打开，请右键 install_aw_agent_mac.command，选择打开。",
+    "6. 终端提示安装结束后，回到 AW 刷新或重启。"
+  ].join("\n");
+  const link = document.getElementById("detailDownload");
+  link.href = file;
+  link.download = item.downloadName || "AW-Agent.zip";
+  document.getElementById("detailDialog").showModal();
+}
+
+document.getElementById("agentForm").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const input = document.getElementById("agentPassword");
+  const message = document.getElementById("agentMessage");
+  if (input.value.trim() !== AGENT_PASSWORD) {
+    message.textContent = "密码不正确，请重新输入。";
+    input.focus();
+    return;
+  }
+  message.textContent = "验证通过，正在打开下载列表...";
+  try {
+    const catalog = await loadScript("assets/aw-packages.js", "AW_SHARE_PACKAGES");
+    agentPackages = catalog.packages || [];
+    renderAgents();
+    document.getElementById("agentLock").classList.add("is-hidden");
+    document.getElementById("agentToolbar").classList.remove("is-hidden");
+    document.getElementById("agentList").classList.remove("is-hidden");
+  } catch (error) {
+    message.textContent = "下载列表加载失败，请稍后刷新重试。";
+  }
+});
+
+document.getElementById("agentSearch").addEventListener("input", (event) => {
+  agentState.query = event.target.value;
+  renderAgents();
+});
+
+document.getElementById("agentFilters").addEventListener("click", (event) => {
+  const button = event.target.closest("button");
+  if (!button) return;
+  document.querySelectorAll(".agent-filter").forEach((item) => item.classList.remove("active"));
+  button.classList.add("active");
+  agentState.category = button.dataset.category;
+  renderAgents();
+});
+
+document.getElementById("closeDetail").addEventListener("click", () => {
+  document.getElementById("detailDialog").close();
+});
+</script>
+</body>
+</html>
