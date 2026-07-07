@@ -12,3 +12,6 @@
 
 /assets/internal-dashboard.js
   Cache-Control: no-cache, no-store, must-revalidate
+
+/assets/business-agent-library.js
+  Cache-Control: no-cache, no-store, must-revalidate

@@ -6,7 +6,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 echo "Checking required files..."
 for file in \
   index.html about.html services.html cases.html aw-agents.html internal.html join.html contact.html global.html \
-  _headers robots.txt sitemap.xml assets/styles.css assets/aw-packages.js assets/accio-guide.js assets/internal-dashboard.js
+  _headers robots.txt sitemap.xml assets/styles.css assets/aw-packages.js assets/accio-guide.js assets/internal-dashboard.js assets/business-agent-library.js
 do
   if [ ! -f "$ROOT/$file" ]; then
     echo "Missing: $file" >&2
@@ -18,10 +18,16 @@ echo "Checking JavaScript syntax..."
 node --check "$ROOT/assets/accio-guide.js" >/dev/null
 node --check "$ROOT/assets/aw-packages.js" >/dev/null
 node --check "$ROOT/assets/internal-dashboard.js" >/dev/null
+node --check "$ROOT/assets/business-agent-library.js" >/dev/null
 
 echo "Checking AI tools page..."
 if grep -q '<script src="assets/aw-packages.js"' "$ROOT/aw-agents.html"; then
   echo "aw-packages.js should not load before password unlock." >&2
+  exit 1
+fi
+
+if grep -q '<script src="assets/business-agent-library.js"' "$ROOT/aw-agents.html"; then
+  echo "business-agent-library.js should not load before password unlock." >&2
   exit 1
 fi
 

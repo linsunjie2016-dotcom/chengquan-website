@@ -175,7 +175,7 @@
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 22px;
     }
 
@@ -545,6 +545,216 @@
       text-align: center;
     }
 
+    .business-panel {
+      max-width: 1200px;
+      margin: 28px auto 0;
+      display: grid;
+      gap: 22px;
+    }
+
+    .business-toolbar {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      padding: 22px;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+    }
+
+    .business-search-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .business-search {
+      min-height: 48px;
+      border: 1px solid var(--gray-200);
+      border-radius: 6px;
+      padding: 0 16px;
+      font: inherit;
+      outline: none;
+      background: #fbfbfb;
+    }
+
+    .business-search:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(255,106,0,0.12);
+      background: var(--white);
+    }
+
+    .business-result {
+      color: var(--gray-600);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .business-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .business-filter {
+      min-height: 36px;
+      border: 1px solid var(--gray-200);
+      background: var(--white);
+      color: var(--gray-800);
+      border-radius: 4px;
+      padding: 0 12px;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .business-filter.active,
+    .business-filter:hover {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: var(--white);
+    }
+
+    .business-route-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .business-route,
+    .business-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      padding: 22px;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+    }
+
+    .business-route h3,
+    .business-card h3 {
+      color: var(--black);
+      font-size: 20px;
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+
+    .business-route p,
+    .business-card p {
+      color: var(--gray-600);
+      font-size: 14px;
+    }
+
+    .business-route ol {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      color: var(--gray-600);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .business-card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .business-card {
+      display: grid;
+      gap: 14px;
+    }
+
+    .business-card-top {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .business-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: var(--gray-100);
+      color: var(--gray-600);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .business-pill.primary {
+      background: var(--orange);
+      color: var(--white);
+    }
+
+    .business-spec {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 0;
+    }
+
+    .business-spec div {
+      background: var(--gray-100);
+      border-radius: 6px;
+      padding: 12px;
+    }
+
+    .business-spec dt {
+      color: var(--gray-600);
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    .business-spec dd {
+      color: var(--black);
+      font-size: 13px;
+      margin: 0;
+      line-height: 1.55;
+    }
+
+    .business-detail {
+      border-top: 1px solid var(--gray-200);
+      padding-top: 4px;
+    }
+
+    .business-detail summary {
+      cursor: pointer;
+      color: var(--black);
+      font-weight: 700;
+      list-style: none;
+    }
+
+    .business-detail summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .business-detail summary::after {
+      content: "+";
+      float: right;
+      color: var(--orange);
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .business-detail[open] summary::after {
+      content: "-";
+    }
+
+    .business-detail-body {
+      color: var(--gray-600);
+      font-size: 13px;
+      line-height: 1.75;
+      padding-top: 12px;
+    }
+
+    .business-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
     .is-hidden {
       display: none !important;
     }
@@ -592,6 +802,11 @@
         grid-template-columns: 1fr;
       }
 
+      .business-route-grid,
+      .business-card-grid {
+        grid-template-columns: 1fr;
+      }
+
       .agent-toolbar {
         grid-template-columns: 1fr;
       }
@@ -632,6 +847,15 @@
         width: 100%;
         justify-content: center;
         flex-wrap: wrap;
+      }
+
+      .business-search-row,
+      .business-spec {
+        grid-template-columns: 1fr;
+      }
+
+      .business-result {
+        white-space: normal;
       }
     }
   </style>
@@ -708,6 +932,11 @@
         <p>面向企业版本的AWB智能体和团队智能应用集合。</p>
         <a href="#agent-section" class="btn-primary">打开下载入口</a>
       </article>
+      <article class="tool-entry">
+        <strong>AI 业务进阶智能体入口</strong>
+        <p>面向外贸经营、流量、商机、客户、组织、产品和供应链场景的业务进阶技能库。</p>
+        <a href="#business-section" class="btn-primary">打开业务入口</a>
+      </article>
     </div>
   </section>
 
@@ -764,6 +993,47 @@
     </div>
     <div class="agent-list is-hidden" id="agentList" aria-live="polite"></div>
   </section>
+
+  <section class="tool-section" id="business-section">
+    <div class="section-inner" style="margin-bottom:28px;">
+      <span class="section-tag">橙荃 AI 业务进阶智能体</span>
+      <h2 class="section-title">AI 业务进阶智能体入口</h2>
+      <p class="section-subtitle" style="margin-bottom:0;">面向外贸经营团队的进阶智能体和指令包，输入密码后可按用途检索、复制用法并下载文件。</p>
+    </div>
+    <div class="password-card" id="businessLock">
+      <h2>请输入访问密码</h2>
+      <p>验证通过后打开橙荃 AI 业务进阶智能体入口。</p>
+      <form class="password-form" id="businessForm">
+        <input class="password-input" id="businessPassword" type="password" placeholder="请输入密码" autocomplete="off" />
+        <button class="unlock-button" type="submit">打开业务入口</button>
+      </form>
+      <div class="form-message" id="businessMessage" role="status" aria-live="polite"></div>
+      <div class="password-note">详情请咨询橙荃商家运营部</div>
+    </div>
+    <div class="business-panel is-hidden" id="businessPanel" aria-live="polite">
+      <div class="business-toolbar">
+        <div class="business-search-row">
+          <input class="business-search" id="businessSearch" type="search" placeholder="搜索用途：询盘 / Listing / RFQ / 组织 / 供应商 / 客户" autocomplete="off" />
+          <div class="business-result" id="businessResult">正在加载...</div>
+        </div>
+        <div class="business-filters" id="businessFilters" aria-label="业务进阶智能体分类"></div>
+      </div>
+      <div>
+        <div class="section-inner" style="padding:0;margin-bottom:18px;">
+          <span class="section-tag">推荐路径</span>
+          <h3 style="font-size:24px;color:var(--black);line-height:1.35;">按业务问题组合使用</h3>
+        </div>
+        <div class="business-route-grid" id="businessRoutes"></div>
+      </div>
+      <div>
+        <div class="section-inner" style="padding:0;margin-bottom:18px;">
+          <span class="section-tag">技能库</span>
+          <h3 style="font-size:24px;color:var(--black);line-height:1.35;">全部业务进阶智能体</h3>
+        </div>
+        <div class="business-card-grid" id="businessCards"></div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <dialog id="detailDialog">
@@ -801,8 +1071,11 @@
 <script>
 const GUIDE_PASSWORD = "chengquan666";
 const AGENT_PASSWORD = "400*400";
+const BUSINESS_PASSWORD = "chengquanyewu";
 const agentState = { category: "all", query: "" };
+const businessState = { category: "全部", query: "" };
 let agentPackages = [];
+let businessLibrary = { categories: [], routes: [], packages: [] };
 
 const roleMeta = {
   "优质商机获取总控": { category: "总控", tier: "TL", summary: "统筹资料完整度、任务拆分与全链路推进，驱动优质大买家获取闭环。", skillCount: 9 },
@@ -1080,6 +1353,177 @@ document.getElementById("agentFilters").addEventListener("click", (event) => {
 
 document.getElementById("closeDetail").addEventListener("click", () => {
   document.getElementById("detailDialog").close();
+});
+
+function businessText(item) {
+  return sanitizeText(item);
+}
+
+function businessMatches(item) {
+  const q = businessState.query.trim().toLowerCase();
+  const haystack = [
+    item.title,
+    item.category,
+    item.type,
+    item.schedule,
+    item.scenario,
+    item.fit,
+    item.inputs,
+    item.output,
+    item.usage,
+    ...(item.tags || []),
+    ...(item.included || [])
+  ].map(businessText).join(" ").toLowerCase();
+  const categoryOk = businessState.category === "全部" || item.category === businessState.category;
+  return categoryOk && (!q || haystack.includes(q));
+}
+
+function renderBusinessFilters() {
+  const box = document.getElementById("businessFilters");
+  box.innerHTML = "";
+  businessLibrary.categories.forEach((category) => {
+    const button = document.createElement("button");
+    button.className = `business-filter${category === businessState.category ? " active" : ""}`;
+    button.type = "button";
+    button.textContent = businessText(category);
+    button.dataset.category = category;
+    box.appendChild(button);
+  });
+}
+
+function renderBusinessRoutes() {
+  const grid = document.getElementById("businessRoutes");
+  grid.innerHTML = "";
+  businessLibrary.routes.forEach((route) => {
+    const card = document.createElement("article");
+    card.className = "business-route";
+    card.innerHTML = `
+      <h3>${businessText(route.title)}</h3>
+      <p>${businessText(route.desc)}</p>
+      <ol></ol>
+    `;
+    const steps = card.querySelector("ol");
+    route.steps.forEach((step) => {
+      const li = document.createElement("li");
+      li.textContent = businessText(step);
+      steps.appendChild(li);
+    });
+    grid.appendChild(card);
+  });
+}
+
+function renderBusinessCards() {
+  const grid = document.getElementById("businessCards");
+  const result = document.getElementById("businessResult");
+  const items = businessLibrary.packages.filter(businessMatches);
+  grid.innerHTML = "";
+  result.textContent = `当前显示 ${items.length} 个，共 ${businessLibrary.packages.length} 个业务智能体/指令包`;
+
+  if (!items.length) {
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.textContent = "没有匹配的内容，请换个用途关键词试试。";
+    grid.appendChild(empty);
+    return;
+  }
+
+  items.forEach((item) => {
+    const card = document.createElement("article");
+    card.className = "business-card";
+    card.innerHTML = `
+      <div class="business-card-top">
+        <span class="business-pill primary">${businessText(item.category)}</span>
+        <span class="business-pill">${businessText(item.type)}</span>
+        <span class="business-pill">${businessText(item.schedule)}</span>
+      </div>
+      <h3>${businessText(item.title)}</h3>
+      <p>${businessText(item.scenario)}</p>
+      <div class="agent-meta"></div>
+      <dl class="business-spec">
+        <div>
+          <dt>适合</dt>
+          <dd>${businessText(item.fit)}</dd>
+        </div>
+        <div>
+          <dt>输出</dt>
+          <dd>${businessText(item.output)}</dd>
+        </div>
+      </dl>
+      <details class="business-detail">
+        <summary>查看使用方法</summary>
+        <div class="business-detail-body">
+          <p><strong>输入材料：</strong>${businessText(item.inputs)}</p>
+          <p><strong>启动方式：</strong>${businessText(item.usage)}</p>
+          <p><strong>安装建议：</strong>${businessText(item.install)}</p>
+        </div>
+      </details>
+      <div class="business-actions">
+        <a class="agent-download">下载文件</a>
+        <button class="agent-method" type="button">复制用法</button>
+      </div>
+    `;
+
+    const metaBox = card.querySelector(".agent-meta");
+    (item.tags || []).slice(0, 4).forEach((tag) => {
+      const chip = document.createElement("span");
+      chip.className = "agent-chip";
+      chip.textContent = businessText(tag);
+      metaBox.appendChild(chip);
+    });
+
+    const download = card.querySelector(".agent-download");
+    download.href = encodeURI(item.download || "#");
+    download.download = "";
+    download.textContent = item.type && item.type.includes("ZIP") ? "下载 ZIP" : "下载文件";
+
+    card.querySelector(".agent-method").addEventListener("click", () => {
+      copyText([
+        businessText(item.title),
+        `适用场景：${businessText(item.scenario)}`,
+        `输入材料：${businessText(item.inputs)}`,
+        `启动方式：${businessText(item.usage)}`,
+        `安装建议：${businessText(item.install)}`
+      ].join("\n"), card.querySelector(".agent-method"));
+    });
+    grid.appendChild(card);
+  });
+}
+
+document.getElementById("businessForm").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const input = document.getElementById("businessPassword");
+  const message = document.getElementById("businessMessage");
+  if (input.value.trim() !== BUSINESS_PASSWORD) {
+    message.textContent = "密码不正确，请重新输入。";
+    input.focus();
+    return;
+  }
+  message.textContent = "验证通过，正在打开业务入口...";
+  try {
+    businessLibrary = await loadScript("assets/business-agent-library.js", "BUSINESS_AGENT_LIBRARY");
+    businessState.category = "全部";
+    businessState.query = "";
+    renderBusinessFilters();
+    renderBusinessRoutes();
+    renderBusinessCards();
+    document.getElementById("businessLock").classList.add("is-hidden");
+    document.getElementById("businessPanel").classList.remove("is-hidden");
+  } catch (error) {
+    message.textContent = "业务智能体入口加载失败，请刷新后重试。";
+  }
+});
+
+document.getElementById("businessSearch").addEventListener("input", (event) => {
+  businessState.query = event.target.value;
+  renderBusinessCards();
+});
+
+document.getElementById("businessFilters").addEventListener("click", (event) => {
+  const button = event.target.closest("button");
+  if (!button) return;
+  businessState.category = button.dataset.category;
+  renderBusinessFilters();
+  renderBusinessCards();
 });
 </script>
 </body>
