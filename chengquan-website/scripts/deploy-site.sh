@@ -9,6 +9,7 @@ BRANCHES="${CHENGQUAN_DEPLOY_BRANCHES:-main cloudflare/workers-autoconfig}"
 SSH_KEY="${CHENGQUAN_DEPLOY_SSH_KEY:-$HOME/.ssh/chengquan_website_deploy_ed25519}"
 GITHUB_REPO="${CHENGQUAN_GITHUB_REPO:-linsunjie2016-dotcom/chengquan-website}"
 PRIMARY_BRANCH="${CHENGQUAN_PRIMARY_BRANCH:-main}"
+WORK_BASE="${CHENGQUAN_DEPLOY_WORK_BASE:-/tmp/chengquan-site-deploy}"
 MAIN_COMMIT=""
 
 cd "$ROOT"
@@ -22,10 +23,19 @@ fi
 publish_branch() {
   local branch="$1"
   local safe_branch="${branch//\//-}"
-  local work_dir="$ROOT/.deploy-worktree-$safe_branch"
+  local work_dir="$WORK_BASE/$safe_branch"
 
-  rm -rf "$work_dir"
-  git clone --depth 1 --filter=blob:none --single-branch --branch "$branch" "$REMOTE_URL" "$work_dir"
+  mkdir -p "$WORK_BASE"
+  if [ -d "$work_dir/.git" ]; then
+    cd "$work_dir"
+    git remote set-url origin "$REMOTE_URL"
+    git fetch --depth 1 origin "$branch"
+    git checkout -B "$branch" "origin/$branch"
+  else
+    rm -rf "$work_dir"
+    git clone --depth 1 --single-branch --branch "$branch" "$REMOTE_URL" "$work_dir"
+    cd "$work_dir"
+  fi
 
   mkdir -p "$work_dir/$REMOTE_SUBDIR"
 
@@ -38,7 +48,6 @@ publish_branch() {
     --exclude '.deploy-worktree-*' \
     "$ROOT/" "$work_dir/$REMOTE_SUBDIR/"
 
-  cd "$work_dir"
   git config user.name "linsunjie2016-dotcom"
   git config user.email "linsunjie2016-dotcom@users.noreply.github.com"
   git add "$REMOTE_SUBDIR"
