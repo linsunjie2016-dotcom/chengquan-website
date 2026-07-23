@@ -175,7 +175,7 @@
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 22px;
     }
 
@@ -755,6 +755,135 @@
       gap: 10px;
     }
 
+    .jack-panel {
+      max-width: 1200px;
+      margin: 28px auto 0;
+      display: grid;
+      gap: 22px;
+    }
+
+    .jack-toolbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      padding: 22px;
+    }
+
+    .jack-search {
+      min-height: 48px;
+      border: 1px solid var(--gray-200);
+      border-radius: 6px;
+      padding: 0 16px;
+      font: inherit;
+      outline: none;
+      background: #fbfbfb;
+    }
+
+    .jack-search:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(255,106,0,0.12);
+      background: var(--white);
+    }
+
+    .jack-result {
+      color: var(--gray-600);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .jack-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .jack-card {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+    }
+
+    .jack-card h3 {
+      color: var(--black);
+      font-size: 21px;
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    .jack-card p {
+      color: var(--gray-600);
+      font-size: 14px;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .jack-card .business-actions {
+      margin-top: auto;
+    }
+
+    .jack-prompt-modal {
+      width: min(960px, calc(100vw - 32px));
+      max-width: 960px;
+    }
+
+    .jack-prompt-modal .agent-modal {
+      padding: 0;
+    }
+
+    .jack-modal-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+      padding: 24px 26px 18px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .jack-modal-head h3 {
+      margin: 0;
+    }
+
+    .jack-modal-close {
+      width: 38px;
+      height: 38px;
+      flex: 0 0 auto;
+      border: 1px solid var(--gray-200);
+      border-radius: 4px;
+      background: var(--white);
+      color: var(--gray-800);
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .jack-prompt-body {
+      max-height: min(68vh, 720px);
+      overflow: auto;
+      margin: 0;
+      padding: 24px 26px;
+      background: #111111;
+      color: rgba(255,255,255,0.9);
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .jack-modal-actions {
+      padding: 16px 26px 22px;
+      border-top: 1px solid var(--gray-200);
+    }
+
     .is-hidden {
       display: none !important;
     }
@@ -803,7 +932,8 @@
       }
 
       .business-route-grid,
-      .business-card-grid {
+      .business-card-grid,
+      .jack-card-grid {
         grid-template-columns: 1fr;
       }
 
@@ -850,11 +980,13 @@
       }
 
       .business-search-row,
-      .business-spec {
+      .business-spec,
+      .jack-toolbar {
         grid-template-columns: 1fr;
       }
 
-      .business-result {
+      .business-result,
+      .jack-result {
         white-space: normal;
       }
     }
@@ -936,6 +1068,11 @@
         <strong>AI 业务进阶智能体入口</strong>
         <p>面向外贸经营、流量、商机、客户、组织、产品和供应链场景的业务进阶技能库。</p>
         <a href="#business-section" class="btn-primary">打开业务入口</a>
+      </article>
+      <article class="tool-entry">
+        <strong>Jack 技能库</strong>
+        <p>沉淀国际站产品视觉、工厂定位与企业智能教练等实战技能，支持查看和一键复制。</p>
+        <a href="#jack-section" class="btn-primary">打开技能库</a>
       </article>
     </div>
   </section>
@@ -1034,6 +1171,31 @@
       </div>
     </div>
   </section>
+
+  <section class="tool-section alt" id="jack-section">
+    <div class="section-inner" style="margin-bottom:28px;">
+      <span class="section-tag">橙荃 · Jack 实战技能</span>
+      <h2 class="section-title">Jack 技能库</h2>
+      <p class="section-subtitle" style="margin-bottom:0;">输入密码后，可按用途搜索技能、查看完整提示词并一键复制。</p>
+    </div>
+    <div class="password-card" id="jackLock">
+      <h2>请输入访问密码</h2>
+      <p>验证通过后打开 Jack 技能库。</p>
+      <form class="password-form" id="jackForm">
+        <input class="password-input" id="jackPassword" type="password" placeholder="请输入密码" autocomplete="off" />
+        <button class="unlock-button" type="submit">打开 Jack 技能库</button>
+      </form>
+      <div class="form-message" id="jackMessage" role="status" aria-live="polite"></div>
+      <div class="password-note">详情请咨询橙荃商家运营部</div>
+    </div>
+    <div class="jack-panel is-hidden" id="jackPanel" aria-live="polite">
+      <div class="jack-toolbar">
+        <input class="jack-search" id="jackSearch" type="search" placeholder="搜索技能用途：产品主图 / 工厂定位 / 国际站策略 / 企业导师" autocomplete="off" />
+        <div class="jack-result" id="jackResult">正在加载...</div>
+      </div>
+      <div class="jack-card-grid" id="jackCards"></div>
+    </div>
+  </section>
 </main>
 
 <dialog id="detailDialog">
@@ -1043,6 +1205,20 @@
     <div class="agent-modal-actions">
       <a class="agent-download" id="detailDownload">下载通用安装包</a>
       <button class="agent-method" id="closeDetail" type="button">关闭</button>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="jackDialog" class="jack-prompt-modal">
+  <div class="agent-modal">
+    <div class="jack-modal-head">
+      <h3 id="jackDialogTitle">完整提示词</h3>
+      <button class="jack-modal-close" id="closeJackDialog" type="button" aria-label="关闭">&times;</button>
+    </div>
+    <pre class="jack-prompt-body" id="jackDialogBody"></pre>
+    <div class="agent-modal-actions jack-modal-actions">
+      <a class="agent-download" id="jackDialogDownload">下载 Markdown</a>
+      <button class="agent-method" id="jackDialogCopy" type="button">一键复制完整提示词</button>
     </div>
   </div>
 </dialog>
@@ -1072,10 +1248,14 @@
 const GUIDE_PASSWORD = "chengquan666";
 const AGENT_PASSWORD = "400*400";
 const BUSINESS_PASSWORD = "chengquanyewu";
+const JACK_PASSWORD = "JackAI";
 const agentState = { category: "all", query: "" };
 const businessState = { category: "全部", query: "" };
+const jackState = { query: "" };
 let agentPackages = [];
 let businessLibrary = { categories: [], routes: [], packages: [] };
+let jackLibrary = { skills: [] };
+let activeJackSkill = null;
 
 const roleMeta = {
   "优质商机获取总控": { category: "总控", tier: "TL", summary: "统筹资料完整度、任务拆分与全链路推进，驱动优质大买家获取闭环。", skillCount: 9 },
@@ -1524,6 +1704,143 @@ document.getElementById("businessFilters").addEventListener("click", (event) => 
   businessState.category = button.dataset.category;
   renderBusinessFilters();
   renderBusinessCards();
+});
+
+function jackMatches(skill) {
+  const query = jackState.query.trim().toLowerCase();
+  const haystack = [skill.title, skill.summary, ...(skill.tags || [])].join(" ").toLowerCase();
+  return !query || haystack.includes(query);
+}
+
+async function loadJackPrompt(skill) {
+  if (skill.prompt) return skill.prompt;
+  const response = await fetch(encodeURI(skill.file), { cache: "no-store" });
+  if (!response.ok) throw new Error("prompt load failed");
+  skill.prompt = await response.text();
+  return skill.prompt;
+}
+
+async function openJackSkill(skill, trigger) {
+  const original = trigger.textContent;
+  trigger.textContent = "正在加载...";
+  trigger.disabled = true;
+  try {
+    const prompt = await loadJackPrompt(skill);
+    activeJackSkill = skill;
+    document.getElementById("jackDialogTitle").textContent = skill.title;
+    document.getElementById("jackDialogBody").textContent = prompt;
+    const download = document.getElementById("jackDialogDownload");
+    download.href = encodeURI(skill.file);
+    download.download = skill.downloadName || "Jack-Skill.md";
+    document.getElementById("jackDialog").showModal();
+  } catch (error) {
+    trigger.textContent = "加载失败，请重试";
+    setTimeout(() => { trigger.textContent = original; }, 1800);
+  } finally {
+    trigger.disabled = false;
+    if (trigger.textContent === "正在加载...") trigger.textContent = original;
+  }
+}
+
+async function copyJackSkill(skill, button) {
+  const original = button.textContent;
+  button.textContent = "正在加载...";
+  button.disabled = true;
+  try {
+    const prompt = await loadJackPrompt(skill);
+    await navigator.clipboard.writeText(prompt);
+    button.textContent = "已复制完整提示词";
+    setTimeout(() => { button.textContent = original; }, 1800);
+  } catch (error) {
+    button.textContent = "复制失败，请重试";
+    setTimeout(() => { button.textContent = original; }, 1800);
+  } finally {
+    button.disabled = false;
+  }
+}
+
+function renderJackSkills() {
+  const grid = document.getElementById("jackCards");
+  const result = document.getElementById("jackResult");
+  const skills = jackLibrary.skills.filter(jackMatches);
+  grid.innerHTML = "";
+  result.textContent = `当前显示 ${skills.length} 个，共 ${jackLibrary.skills.length} 个技能`;
+
+  if (!skills.length) {
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.textContent = "没有匹配的技能，请换个用途关键词试试。";
+    grid.appendChild(empty);
+    return;
+  }
+
+  skills.forEach((skill, index) => {
+    const card = document.createElement("article");
+    card.className = "jack-card";
+    card.innerHTML = `
+      <div class="business-card-top">
+        <span class="business-pill primary">Jack 技能</span>
+        <span class="business-pill">${String(index + 1).padStart(2, "0")}</span>
+      </div>
+      <h3>${businessText(skill.title)}</h3>
+      <p>${businessText(skill.summary)}</p>
+      <div class="agent-meta"></div>
+      <div class="business-actions">
+        <button class="agent-download jack-open" type="button">查看完整提示词</button>
+        <button class="agent-method jack-copy" type="button">一键复制提示词</button>
+        <a class="agent-method jack-download">下载 Markdown</a>
+      </div>
+    `;
+
+    const tags = card.querySelector(".agent-meta");
+    (skill.tags || []).forEach((tag) => {
+      const chip = document.createElement("span");
+      chip.className = "agent-chip";
+      chip.textContent = businessText(tag);
+      tags.appendChild(chip);
+    });
+
+    card.querySelector(".jack-open").addEventListener("click", (event) => openJackSkill(skill, event.currentTarget));
+    card.querySelector(".jack-copy").addEventListener("click", (event) => copyJackSkill(skill, event.currentTarget));
+    const download = card.querySelector(".jack-download");
+    download.href = encodeURI(skill.file);
+    download.download = skill.downloadName || "Jack-Skill.md";
+    grid.appendChild(card);
+  });
+}
+
+document.getElementById("jackForm").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const input = document.getElementById("jackPassword");
+  const message = document.getElementById("jackMessage");
+  if (input.value.trim() !== JACK_PASSWORD) {
+    message.textContent = "密码不正确，请重新输入。";
+    input.focus();
+    return;
+  }
+  message.textContent = "验证通过，正在打开 Jack 技能库...";
+  try {
+    jackLibrary = await loadScript("assets/jack-skill-library.js", "JACK_SKILL_LIBRARY");
+    jackState.query = "";
+    renderJackSkills();
+    document.getElementById("jackLock").classList.add("is-hidden");
+    document.getElementById("jackPanel").classList.remove("is-hidden");
+  } catch (error) {
+    message.textContent = "Jack 技能库加载失败，请刷新后重试。";
+  }
+});
+
+document.getElementById("jackSearch").addEventListener("input", (event) => {
+  jackState.query = event.target.value;
+  renderJackSkills();
+});
+
+document.getElementById("closeJackDialog").addEventListener("click", () => {
+  document.getElementById("jackDialog").close();
+});
+
+document.getElementById("jackDialogCopy").addEventListener("click", (event) => {
+  if (activeJackSkill) copyJackSkill(activeJackSkill, event.currentTarget);
 });
 </script>
 </body>

@@ -6,7 +6,8 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 echo "Checking required files..."
 for file in \
   index.html about.html services.html cases.html aw-agents.html internal.html join.html contact.html global.html \
-  _headers robots.txt sitemap.xml assets/styles.css assets/aw-packages.js assets/accio-guide.js assets/internal-dashboard.js assets/business-agent-library.js
+  _headers robots.txt sitemap.xml assets/styles.css assets/aw-packages.js assets/accio-guide.js assets/internal-dashboard.js assets/business-agent-library.js assets/jack-skill-library.js \
+  downloads/jack-skills/alibaba-product-6images.md downloads/jack-skills/b2b-factory-market-positioning.md downloads/jack-skills/international-station-training-mentor.md
 do
   if [ ! -f "$ROOT/$file" ]; then
     echo "Missing: $file" >&2
@@ -19,6 +20,7 @@ node --check "$ROOT/assets/accio-guide.js" >/dev/null
 node --check "$ROOT/assets/aw-packages.js" >/dev/null
 node --check "$ROOT/assets/internal-dashboard.js" >/dev/null
 node --check "$ROOT/assets/business-agent-library.js" >/dev/null
+node --check "$ROOT/assets/jack-skill-library.js" >/dev/null
 
 echo "Checking AI tools page..."
 if grep -q '<script src="assets/aw-packages.js"' "$ROOT/aw-agents.html"; then
@@ -28,6 +30,16 @@ fi
 
 if grep -q '<script src="assets/business-agent-library.js"' "$ROOT/aw-agents.html"; then
   echo "business-agent-library.js should not load before password unlock." >&2
+  exit 1
+fi
+
+if grep -q '<script src="assets/jack-skill-library.js"' "$ROOT/aw-agents.html"; then
+  echo "jack-skill-library.js should not load before password unlock." >&2
+  exit 1
+fi
+
+if ! grep -q 'JACK_PASSWORD = "JackAI"' "$ROOT/aw-agents.html"; then
+  echo "Jack skill library password gate is missing or changed." >&2
   exit 1
 fi
 
