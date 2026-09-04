@@ -5,8 +5,8 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 
 echo "Checking required files..."
 for file in \
-  index.html about.html services.html cases.html aw-agents.html internal.html join.html contact.html global.html \
-  _headers robots.txt sitemap.xml assets/styles.css assets/aw-packages.js assets/accio-guide.js assets/internal-dashboard.js assets/business-agent-library.js assets/jack-skill-library.js \
+  index.html about.html services.html cases.html team.html aw-agents.html insights.html join.html contact.html global.html \
+  _headers robots.txt sitemap.xml assets/styles.css assets/jack-executive-v2.jpg assets/aw-packages.js assets/accio-guide.js assets/business-agent-library.js assets/jack-skill-library.js \
   downloads/jack-skills/alibaba-product-6images.md downloads/jack-skills/b2b-factory-market-positioning.md downloads/jack-skills/international-station-training-mentor.md
 do
   if [ ! -f "$ROOT/$file" ]; then
@@ -18,7 +18,6 @@ done
 echo "Checking JavaScript syntax..."
 node --check "$ROOT/assets/accio-guide.js" >/dev/null
 node --check "$ROOT/assets/aw-packages.js" >/dev/null
-node --check "$ROOT/assets/internal-dashboard.js" >/dev/null
 node --check "$ROOT/assets/business-agent-library.js" >/dev/null
 node --check "$ROOT/assets/jack-skill-library.js" >/dev/null
 
@@ -59,20 +58,20 @@ if grep -Eq 'Boss|岗位|正在招募|投递|客户经理招聘' "$ROOT/index.ht
   exit 1
 fi
 
-echo "Checking internal page..."
-if grep -q '<script src="assets/internal-dashboard.js"' "$ROOT/internal.html"; then
-  echo "internal-dashboard.js should not load before password unlock." >&2
+echo "Checking public navigation..."
+if grep -R -E -q \
+  --include='*.html' --include='*.css' --include='*.js' --include='robots.txt' --include='_headers' \
+  --exclude-dir=deploy --exclude='.DS_Store' \
+  'internal\.html|内部入口|internal-dashboard\.js' "$ROOT"; then
+  echo "Removed internal entry is still referenced by the public site." >&2
   exit 1
 fi
 
-if ! grep -q 'PASSWORD = "cqyy"' "$ROOT/internal.html"; then
-  echo "Internal page password gate is missing or changed." >&2
-  exit 1
-fi
-
-if grep -q 'internal.html' "$ROOT/sitemap.xml"; then
-  echo "Internal page should not be listed in sitemap.xml." >&2
-  exit 1
-fi
+for page in index.html about.html services.html cases.html team.html aw-agents.html insights.html join.html contact.html global.html; do
+  if ! grep -q 'href="team.html"' "$ROOT/$page" || ! grep -q 'href="insights.html"' "$ROOT/$page"; then
+    echo "New navigation is missing from $page." >&2
+    exit 1
+  fi
+done
 
 echo "OK"
