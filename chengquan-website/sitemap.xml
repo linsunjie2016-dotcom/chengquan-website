@@ -4,78 +4,78 @@
 
   <url>
     <loc>https://www.chengquanai.com/</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.chengquanai.com/" />
   </url>
 
   <url>
-    <loc>https://www.chengquanai.com/about.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <loc>https://www.chengquanai.com/about</loc>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://www.chengquanai.com/services.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <loc>https://www.chengquanai.com/services</loc>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://www.chengquanai.com/cases.html</loc>
-    <lastmod>2026-06-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.chengquanai.com/team.html</loc>
+    <loc>https://www.chengquanai.com/cases</loc>
     <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.chengquanai.com/aw-agents.html</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.chengquanai.com/team</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.chengquanai.com/insights.html</loc>
+    <loc>https://www.chengquanai.com/aw-agents</loc>
     <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.chengquanai.com/contact.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <loc>https://www.chengquanai.com/insights</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.chengquanai.com/contact</loc>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.chengquanai.com/join.html</loc>
-    <lastmod>2026-06-05</lastmod>
+    <loc>https://www.chengquanai.com/join</loc>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://www.chengquanai.com/global.html</loc>
-    <lastmod>2026-06-06</lastmod>
+    <loc>https://www.chengquanai.com/global</loc>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://www.chengquanai.com/llms.txt</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
