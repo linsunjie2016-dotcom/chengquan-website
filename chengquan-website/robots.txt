@@ -1,51 +1,27 @@
 User-agent: *
 Allow: /
-Disallow: /internal.html
-Disallow: /internal
-Disallow: /assets/internal-dashboard.js
 
 # GEO: Allow all AI crawlers
 User-agent: GPTBot
 Allow: /
-Disallow: /internal.html
-Disallow: /internal
-Disallow: /assets/internal-dashboard.js
 
 User-agent: ChatGPT-User
 Allow: /
-Disallow: /internal.html
-Disallow: /internal
-Disallow: /assets/internal-dashboard.js
 
 User-agent: PerplexityBot
 Allow: /
-Disallow: /internal.html
-Disallow: /internal
-Disallow: /assets/internal-dashboard.js
 
 User-agent: ClaudeBot
 Allow: /
-Disallow: /internal.html
-Disallow: /internal
-Disallow: /assets/internal-dashboard.js
 
 User-agent: anthropic-ai
 Allow: /
-Disallow: /internal.html
-Disallow: /internal
-Disallow: /assets/internal-dashboard.js
 
 User-agent: Google-Extended
 Allow: /
-Disallow: /internal.html
-Disallow: /internal
-Disallow: /assets/internal-dashboard.js
 
 User-agent: Googlebot
 Allow: /
-Disallow: /internal.html
-Disallow: /internal
-Disallow: /assets/internal-dashboard.js
 
 # Sitemap
 Sitemap: https://www.chengquanai.com/sitemap.xml
