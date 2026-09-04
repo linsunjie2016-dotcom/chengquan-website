@@ -6,7 +6,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 echo "Checking required files..."
 for file in \
   index.html about.html services.html cases.html team.html aw-agents.html insights.html join.html contact.html global.html \
-  _headers robots.txt sitemap.xml assets/styles.css assets/jack-executive-v2.jpg assets/aw-packages.js assets/accio-guide.js assets/business-agent-library.js assets/jack-skill-library.js \
+  _headers _redirects robots.txt sitemap.xml assets/styles.css assets/jack-executive-v2.jpg assets/aw-packages.js assets/accio-guide.js assets/business-agent-library.js assets/jack-skill-library.js \
   downloads/jack-skills/alibaba-product-6images.md downloads/jack-skills/b2b-factory-market-positioning.md downloads/jack-skills/international-station-training-mentor.md
 do
   if [ ! -f "$ROOT/$file" ]; then
@@ -68,10 +68,46 @@ if grep -R -E -q \
 fi
 
 for page in index.html about.html services.html cases.html team.html aw-agents.html insights.html join.html contact.html global.html; do
-  if ! grep -q 'href="team.html"' "$ROOT/$page" || ! grep -q 'href="insights.html"' "$ROOT/$page"; then
+  if ! grep -q 'href="/team"' "$ROOT/$page" || ! grep -q 'href="/insights"' "$ROOT/$page"; then
     echo "New navigation is missing from $page." >&2
     exit 1
   fi
 done
+
+echo "Checking canonical URLs..."
+while IFS='|' read -r page path; do
+  if ! grep -q "<link rel=\"canonical\" href=\"https://www.chengquanai.com${path}\"" "$ROOT/$page"; then
+    echo "Canonical URL is incorrect in $page." >&2
+    exit 1
+  fi
+done <<'EOF'
+index.html|/
+about.html|/about
+services.html|/services
+cases.html|/cases
+team.html|/team
+aw-agents.html|/aw-agents
+insights.html|/insights
+join.html|/join
+contact.html|/contact
+global.html|/global
+EOF
+
+if grep -E -q 'href="(index|about|services|cases|team|aw-agents|insights|join|contact|global)\.html' "$ROOT"/*.html; then
+  echo "A public internal link still points to an HTML redirect URL." >&2
+  exit 1
+fi
+
+if grep -qE '<loc>https://www\.chengquanai\.com/[^<]+\.html</loc>' "$ROOT/sitemap.xml"; then
+  echo "Sitemap still contains redirect URLs." >&2
+  exit 1
+fi
+
+if ! grep -q '^/index\.html / 301$' "$ROOT/_redirects" || \
+   ! grep -q '^/about\.html /about 301$' "$ROOT/_redirects" || \
+   ! grep -q '^/aw-agents\.html /aw-agents 301$' "$ROOT/_redirects"; then
+  echo "Permanent canonical redirects are incomplete." >&2
+  exit 1
+fi
 
 echo "OK"
