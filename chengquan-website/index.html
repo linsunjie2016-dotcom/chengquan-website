@@ -58,7 +58,7 @@
   </script>
 
   <script>document.documentElement.classList.add('has-js');</script>
-  <link rel="stylesheet" href="assets/styles.css?v=20260801-home" />
+  <link rel="stylesheet" href="assets/styles.css?v=20260905-home-motion" />
 </head>
 <body>
 
@@ -98,9 +98,14 @@
 
 <!-- HOME HERO -->
 <main>
-  <section class="home-hero">
-    <div class="home-hero-grid">
-      <div class="home-hero-copy" data-reveal>
+  <div class="home-motion-rail" aria-hidden="true"><span></span></div>
+
+  <section class="home-hero home-hero-v2">
+    <div class="home-hero-media" aria-hidden="true">
+      <img src="assets/home-hero-dongguan.jpg" width="1774" height="887" alt="" fetchpriority="high" decoding="async" />
+    </div>
+    <div class="home-hero-stage">
+      <div class="home-hero-copy" data-reveal="left">
         <div class="home-eyebrow"><span></span> 阿里巴巴国际站官方授权本地渠道商</div>
         <h1>让东莞制造<br /><em>更稳地走向全球</em></h1>
         <p>橙荃不替企业经营，而是以官方、本地、长期的服务，帮助企业建立真正属于自己的跨境经营能力。</p>
@@ -113,30 +118,38 @@
         </div>
       </div>
 
-      <div class="home-growth-visual" aria-hidden="true" data-reveal>
-        <div class="home-visual-kicker">GLOBAL GROWTH SYSTEM</div>
-        <div class="growth-orbit">
-          <div class="orbit-ring orbit-ring-one"></div>
-          <div class="orbit-ring orbit-ring-two"></div>
-          <div class="orbit-core"><strong>橙荃</strong><small>CHENGQUAN</small></div>
-          <div class="orbit-node orbit-node-one">方向</div>
-          <div class="orbit-node orbit-node-two">能力</div>
-          <div class="orbit-node orbit-node-three">体系</div>
+      <div class="home-hero-signal" aria-hidden="true" data-reveal="right">
+        <div class="home-signal-title"><span></span> DONGGUAN TO GLOBAL</div>
+        <div class="home-signal-route">
+          <div><small>01</small><strong>方向</strong></div>
+          <i></i>
+          <div><small>02</small><strong>能力</strong></div>
+          <i></i>
+          <div><small>03</small><strong>体系</strong></div>
         </div>
-        <div class="home-visual-flow">
-          <span>0 → 1</span><i></i><span>1 → 10</span><i></i><span>10 → 100</span>
+        <div class="home-signal-flow">
+          <span>0 → 1</span><span>1 → 10</span><span>10 → 100</span>
         </div>
       </div>
+
+      <div class="home-scroll-cue" aria-hidden="true"><span></span> SCROLL TO EXPLORE</div>
     </div>
   </section>
+
+  <div class="home-flow-ticker" aria-hidden="true">
+    <div class="home-flow-track">
+      <span>东莞制造</span><i></i><span>全球买家</span><i></i><span>官方授权</span><i></i><span>本地陪伴</span><i></i><span>长期增长</span><i></i>
+      <span>东莞制造</span><i></i><span>全球买家</span><i></i><span>官方授权</span><i></i><span>本地陪伴</span><i></i><span>长期增长</span><i></i>
+    </div>
+  </div>
 
   <!-- PROOF STRIP -->
   <section class="home-proof-strip" aria-label="橙荃服务规模">
     <div class="home-proof-grid">
-      <div data-reveal><strong>600<sup>+</sup></strong><span>客户实践积累</span></div>
-      <div data-reveal><strong>7<sup>年</sup></strong><span>深耕东莞产业带</span></div>
-      <div data-reveal><strong>60<sup>+</sup></strong><span>专业服务团队</span></div>
-      <div data-reveal><strong>10<sup>+</sup></strong><span>区域及全国明星客户</span></div>
+      <div data-reveal><strong><b data-count="600">600</b><sup>+</sup></strong><span>客户实践积累</span></div>
+      <div data-reveal><strong><b data-count="7">7</b><sup>年</sup></strong><span>深耕东莞产业带</span></div>
+      <div data-reveal><strong><b data-count="60">60</b><sup>+</sup></strong><span>专业服务团队</span></div>
+      <div data-reveal><strong><b data-count="10">10</b><sup>+</sup></strong><span>区域及全国明星客户</span></div>
     </div>
   </section>
 
@@ -298,10 +311,14 @@ function toggleMenu() {
 
 (function () {
   var items = document.querySelectorAll('[data-reveal]');
+  var counters = document.querySelectorAll('[data-count]');
+  var root = document.documentElement;
+  var hero = document.querySelector('.home-hero-v2');
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (reduceMotion || !('IntersectionObserver' in window)) {
     items.forEach(function (item) { item.classList.add('is-visible'); });
+    counters.forEach(function (counter) { counter.textContent = counter.getAttribute('data-count'); });
     return;
   }
 
@@ -315,6 +332,65 @@ function toggleMenu() {
   }, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
 
   items.forEach(function (item) { observer.observe(item); });
+
+  function animateCount(counter) {
+    if (counter.getAttribute('data-counted') === 'true') return;
+    counter.setAttribute('data-counted', 'true');
+    var target = Number(counter.getAttribute('data-count'));
+    var start = performance.now();
+    var duration = 1300;
+    counter.textContent = '0';
+
+    function tick(now) {
+      var progress = Math.min((now - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      counter.textContent = Math.round(target * eased);
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
+  }
+
+  var countObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        animateCount(entry.target);
+        countObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.65 });
+
+  counters.forEach(function (counter) { countObserver.observe(counter); });
+
+  var scrollTicking = false;
+  function updateScrollMotion() {
+    var max = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+    var progress = Math.min(window.scrollY / max, 1);
+    root.style.setProperty('--home-page-progress', (progress * 100).toFixed(2) + '%');
+    if (hero) {
+      var heroShift = Math.min(window.scrollY * 0.12, 72);
+      hero.style.setProperty('--home-hero-shift', heroShift.toFixed(1) + 'px');
+    }
+    scrollTicking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!scrollTicking) {
+      requestAnimationFrame(updateScrollMotion);
+      scrollTicking = true;
+    }
+  }, { passive: true });
+  updateScrollMotion();
+
+  if (window.matchMedia('(pointer: fine)').matches && hero) {
+    hero.addEventListener('pointermove', function (event) {
+      var rect = hero.getBoundingClientRect();
+      var x = (event.clientX - rect.left) / rect.width - 0.5;
+      var y = (event.clientY - rect.top) / rect.height - 0.5;
+      hero.style.setProperty('--home-pointer-x', (x * 14).toFixed(1) + 'px');
+      hero.style.setProperty('--home-pointer-y', (y * 9).toFixed(1) + 'px');
+    });
+  }
 })();
 </script>
 </body>
