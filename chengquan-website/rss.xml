@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>橙荃产业出海观察</title>
+    <link>https://www.chengquanai.com/insights</link>
+    <description>面向制造企业的季度市场研究与产品开发参考，理解海外买家、产品方向与工厂准备。</description>
+    <language>zh-CN</language>
+    <copyright>广东橙荃互联网科技有限公司</copyright>
+    <lastBuildDate>Fri, 09 Oct 2026 00:00:00 +0800</lastBuildDate>
+    <atom:link href="https://www.chengquanai.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2027春夏镂空针织开发指南：从趋势样衣到可量产系列</title>
+      <link>https://www.chengquanai.com/insights/ss27-open-knit-development</link>
+      <guid isPermaLink="true">https://www.chengquanai.com/insights/ss27-open-knit-development</guid>
+      <description>面向毛织与针织OEM/ODM企业，拆解Open Knit产品矩阵、纱线与组织、样品验证和海外买家资料准备。</description>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 +0800</pubDate>
+      <category>针织服装</category>
+    </item>
+    <item>
+      <title>2027拉杆箱OEM开发方向：从单箱制造到旅行系列配套</title>
+      <link>https://www.chengquanai.com/insights/2027-luggage-oem-development</link>
+      <guid isPermaLink="true">https://www.chengquanai.com/insights/2027-luggage-oem-development</guid>
+      <description>面向箱包制造企业，分析出行场景、产品系列、MOQ、质量验证与补单准备。</description>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 +0800</pubDate>
+      <category>箱包出行</category>
+    </item>
+  </channel>
+</rss>

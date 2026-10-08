@@ -6,3 +6,9 @@
 
 /assets/business-agent-library.js
   Cache-Control: no-cache, no-store, must-revalidate
+
+/insights
+  Cache-Control: public, max-age=0, must-revalidate
+
+/insights/*
+  Cache-Control: public, max-age=0, must-revalidate
