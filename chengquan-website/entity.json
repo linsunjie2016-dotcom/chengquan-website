@@ -38,15 +38,17 @@
         {
           "@type": "PostalAddress",
           "name": "总部 · Headquarters",
-          "addressLocality": "高埗镇 (Gaobuzhen)",
-          "addressRegion": "东莞市 (Dongguan)",
+          "streetAddress": "高埗镇冼沙星光路6号时兴中心A栋9楼911～915室",
+          "addressLocality": "东莞市 (Dongguan)",
+          "addressRegion": "广东省 (Guangdong)",
           "addressCountry": "CN"
         },
         {
           "@type": "PostalAddress",
-          "name": "分公司 · Branch",
-          "addressLocality": "厚街镇 (Houjie)",
-          "addressRegion": "东莞市 (Dongguan)",
+          "name": "第一分部 · Branch",
+          "streetAddress": "厚街镇良益大厦11楼1101室（地铁展览中心出口）",
+          "addressLocality": "东莞市 (Dongguan)",
+          "addressRegion": "广东省 (Guangdong)",
           "addressCountry": "CN"
         }
       ],
@@ -72,18 +74,16 @@
         "Dongguan manufacturing industry",
         "Export trade consulting",
         "阿里国际站运营",
-        "东莞制造业出海"
+        "东莞制造业出海",
+        "制造企业季度市场研究",
+        "针织产品开发与海外买家需求",
+        "箱包产品组合与采购准备"
       ],
       "award": [
         "Alibaba.com national Real Bull Award (真牛奖) — client achievement",
         "Shenzhen-Dongguan-Huizhou Cross-border Entrepreneurship Competition — supported champion client"
       ],
       "slogan": "做外贸，来橙荃 | Chengquan — Your official Alibaba partner in Dongguan",
-      "parentOrganization": {
-        "@type": "Organization",
-        "name": "Alibaba.com",
-        "url": "https://www.alibaba.com"
-      },
       "sameAs": [
         "https://www.chengquanai.com"
       ]
@@ -97,7 +97,21 @@
       "publisher": {
         "@id": "https://www.chengquanai.com/#organization"
       },
-      "inLanguage": ["zh-CN", "en"]
+      "inLanguage": ["zh-CN", "en"],
+      "hasPart": {"@id":"https://www.chengquanai.com/insights#collection"}
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://www.chengquanai.com/insights#collection",
+      "url": "https://www.chengquanai.com/insights",
+      "name": "橙荃产业出海观察",
+      "inLanguage": "zh-CN",
+      "description": "面向制造企业的季度市场研究与产品开发参考。",
+      "publisher": {"@id":"https://www.chengquanai.com/#organization"},
+      "hasPart": [
+        {"@type":"WebPage","url":"https://www.chengquanai.com/insights/ss27-open-knit-development","name":"2027春夏镂空针织开发指南"},
+        {"@type":"WebPage","url":"https://www.chengquanai.com/insights/2027-luggage-oem-development","name":"2027拉杆箱OEM开发方向"}
+      ]
     }
   ]
 }
