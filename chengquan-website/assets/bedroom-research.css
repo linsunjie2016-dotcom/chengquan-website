@@ -1,0 +1,23 @@
+/* Bedroom research: retain the shared Chengquan editorial system. */
+.bedroom-research .article-heading { grid-template-columns: minmax(0, 1.9fr) minmax(230px, .8fr); gap: 42px; }
+.bedroom-research .article-heading h1 { font-size: clamp(30px, 3.2vw, 45px); }
+.bedroom-research .article-hero-figure img { aspect-ratio: 16 / 9; }
+.bedroom-research .article-number { line-height: 1.8; display: inline-block; }
+.bedroom-research .article-brief .article-number { display: block; }
+@media (max-width: 800px) { .bedroom-research .article-heading { grid-template-columns: 1fr; gap: 24px; } }
+@media (max-width: 580px) { .bedroom-research .article-heading h1 { font-size: 30px; } .bedroom-research .research-eyebrow { font-size: 10px; letter-spacing: 1px; } }
+
+/* Keep the research navigation horizontal across the legacy 1280px breakpoint. */
+@media (min-width: 1200px) {
+ .research-page .cq-header #nav-list, .contact-research .cq-header #nav-list { flex-direction: row; }
+ .research-page .cq-header #nav-list .header-cta, .contact-research .cq-header #nav-list .header-cta { display: block; }
+}
+@media (min-width: 901px) {
+ .research-card-featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1.12fr 1fr; }
+ .research-card-featured .research-card-media { min-height: 360px; }
+ .research-card-featured .research-card-media img { height: 100%; width: 100%; object-fit: cover; }
+ .research-card-featured h3 { font-size: 29px; }
+}
+
+.bedroom-title-break { display: none; }
+@media (max-width: 580px) { .bedroom-title-break { display: block; } .bedroom-research .article-heading h1 span { text-wrap: wrap; } }
