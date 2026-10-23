@@ -24,6 +24,7 @@
     setToc(); mobileReading.addEventListener('change', setToc);
   }
   const topics = {
+    'bedroom-furniture': {title:'交流卧室家具出海准备', intro:'带上主营产品、材料工艺、定制范围与样品情况，一起讨论目标买家、产品系列、采购资料和渠道准备。', message:'我看了橙荃的卧室家具研究。我们主营____，材料与工艺是____，可定制范围和样品情况是____。想交流欧洲或北美的目标买家、床组开发与出海准备。', href:'/insights/europe-north-america-bedroom-furniture'},
     'onboarding': {title:'咨询阿里国际站开户', intro:'带上企业名称、主营产品和现有外贸基础，先了解入驻准备与可选方案。', message:'我们是____，主营____，目前外贸基础是____。想咨询阿里国际站入驻条件、资料与方案。', href:'/services/alibaba-onboarding'},
     'operations': {title:'咨询阿里国际站运营指导', intro:'说明店铺经营阶段、团队配置和当前问题，一起确定需要协同的事项。', message:'我们主营____，店铺目前处于____阶段，团队配置是____。想交流产品表达、询盘跟进或数据复盘方面的问题：____。', href:'/services/alibaba-operations'},
     'website': {title:'咨询独立站与 SEO / GEO 服务', intro:'独立站服务另行收费。请说明行业、目标市场与语言、现有网站及内容基础，沟通交付范围与行业商机保障方案。', message:'我们主营____，目标市场与语言是____，已有网站是____（如无请注明）。希望咨询建站、多语言、SEO/GEO 与内容维护，了解本行业的商机保障数量、周期、验收口径及费用。', href:'/services/b2b-website'},
