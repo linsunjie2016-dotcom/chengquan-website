@@ -1,0 +1,11 @@
+.manufacturing-study .article-heading h1 { max-width: 900px; }
+.manufacturing-study .article-heading h1 span { display: block; }
+.manufacturing-study .article-hero-figure img { aspect-ratio: 16 / 9; object-fit: cover; }
+.manufacturing-study .opportunity-path { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; padding: 0; margin: 26px 0; counter-reset: path; }
+.manufacturing-study .opportunity-path li { counter-increment: path; border-top: 3px solid #ee7425; border-radius: 0 0 8px 8px; padding: 16px; background: #f7f6f3; }
+.manufacturing-study .opportunity-path li::before { content: "0" counter(path); display: block; font: 600 13px/1.5 ui-monospace, monospace; color: #a44b17; margin-bottom: 14px; }
+.manufacturing-study .opportunity-path strong { display: block; color: #222; font-size: 17px; margin-bottom: 7px; }
+.manufacturing-study .opportunity-path small { display: block; font-size: 13px; line-height: 1.75; color: #595959; }
+.manufacturing-study .article-evidence p { margin-bottom: 10px; }
+@media (max-width: 1000px) { .manufacturing-study .opportunity-path { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .manufacturing-study .opportunity-path { grid-template-columns: 1fr; } }

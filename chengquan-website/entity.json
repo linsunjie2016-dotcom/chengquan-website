@@ -58,10 +58,20 @@
           "telephone": "+86-13631778154",
           "contactType": "sales",
           "name": "Jack",
-          "availableLanguage": ["zh-CN", "en"],
+          "availableLanguage": [
+            "zh-CN",
+            "en"
+          ],
           "hoursAvailable": {
             "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+            ],
             "opens": "09:00",
             "closes": "18:00"
           }
@@ -97,8 +107,13 @@
       "publisher": {
         "@id": "https://www.chengquanai.com/#organization"
       },
-      "inLanguage": ["zh-CN", "en"],
-      "hasPart": {"@id":"https://www.chengquanai.com/insights#collection"}
+      "inLanguage": [
+        "zh-CN",
+        "en"
+      ],
+      "hasPart": {
+        "@id": "https://www.chengquanai.com/insights#collection"
+      }
     },
     {
       "@type": "CollectionPage",
@@ -107,10 +122,25 @@
       "name": "橙荃产业出海观察",
       "inLanguage": "zh-CN",
       "description": "面向制造企业的季度市场研究与产品开发参考。",
-      "publisher": {"@id":"https://www.chengquanai.com/#organization"},
+      "publisher": {
+        "@id": "https://www.chengquanai.com/#organization"
+      },
       "hasPart": [
-        {"@type":"WebPage","url":"https://www.chengquanai.com/insights/ss27-open-knit-development","name":"2027春夏镂空针织开发指南"},
-        {"@type":"WebPage","url":"https://www.chengquanai.com/insights/2027-luggage-oem-development","name":"2027拉杆箱OEM开发方向"}
+        {
+          "@type": "WebPage",
+          "url": "https://www.chengquanai.com/insights/2027-manufacturing-export-opportunities",
+          "name": "2027制造业出海机会观察：从精密弹簧到户外厨房，如何把制造能力变成海外订单"
+        },
+        {
+          "@type": "WebPage",
+          "url": "https://www.chengquanai.com/insights/ss27-open-knit-development",
+          "name": "2027春夏镂空针织开发指南"
+        },
+        {
+          "@type": "WebPage",
+          "url": "https://www.chengquanai.com/insights/2027-luggage-oem-development",
+          "name": "2027拉杆箱OEM开发方向"
+        }
       ]
     }
   ]
