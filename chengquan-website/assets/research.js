@@ -24,6 +24,7 @@
     setToc(); mobileReading.addEventListener('change', setToc);
   }
   const topics = {
+    'packaging-export': {title:'交流包装印刷出海规划', intro:'从主营产品、成熟工艺与样品出发，讨论适合的细分方向、目标买家、页面视觉和90天执行重点。', message:'我看了橙荃的包装印刷出海研究。我们主营____，成熟工艺与配套能力是____，现有样品和外贸基础是____。想交流细分选品、产品视觉和90天国际站运营准备。', href:'/insights/packaging-printing-alibaba-90-day-plan'},
     'manufacturing-export': {title:'交流制造业出海方向', intro:'从主营产品、工艺和样品情况出发，讨论采购场景、开发资料与海外渠道准备。', message:'我看了橙荃的2027制造业出海研究。我们主营____，现有工艺与样品情况是____，目标市场是____。想交流适合的采购场景、产品方向及出海准备。', href:'/insights/2027-manufacturing-export-opportunities'},
     'bedroom-furniture': {title:'交流卧室家具出海准备', intro:'带上主营产品、材料工艺、定制范围与样品情况，一起讨论目标买家、产品系列、采购资料和渠道准备。', message:'我看了橙荃的卧室家具研究。我们主营____，材料与工艺是____，可定制范围和样品情况是____。想交流欧洲或北美的目标买家、床组开发与出海准备。', href:'/insights/europe-north-america-bedroom-furniture'},
     'onboarding': {title:'咨询阿里国际站开户', intro:'带上企业名称、主营产品和现有外贸基础，先了解入驻准备与可选方案。', message:'我们是____，主营____，目前外贸基础是____。想咨询阿里国际站入驻条件、资料与方案。', href:'/services/alibaba-onboarding'},
